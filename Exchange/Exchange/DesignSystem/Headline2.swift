@@ -19,6 +19,6 @@ struct Headline2: View {
 
 struct Headline2_Previews: PreviewProvider {
     static var previews: some View {
-        Headline2(text: "Hello. World!", color: TextColor.PrimaryDark)
+        Headline2(text: "Hello. World!", color: TextColor.Primary)
     }
 }

@@ -12,10 +12,10 @@ struct SplashScreen: View {
         ZStack{
             GeometryReader { geometry in
                 VStack(alignment: .leading){
-                    Headline1(text: "Random", color: TextColor.PrimaryLight)
-                    Headline1(text: "Currency", color: TextColor.PrimaryLight)
-                    Headline1(text: "Exchange", color: TextColor.PrimaryLight)
-                    Headline1(text: "Rate", color: TextColor.PrimaryLight)
+                    Headline1(text: "Random", color: TextColor.OnPrimary)
+                    Headline1(text: "Currency", color: TextColor.OnPrimary)
+                    Headline1(text: "Exchange", color: TextColor.OnPrimary)
+                    Headline1(text: "Rate", color: TextColor.OnPrimary)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .leading)
                 .padding()

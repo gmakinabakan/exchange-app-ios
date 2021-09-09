@@ -23,7 +23,7 @@ struct AnimatedButton: View {
         ZStack {
             Button(action: action) {
                 Text(loading ? "" : text)
-                    .foregroundColor(TextColor.PrimaryLight)
+                    .foregroundColor(TextColor.OnPrimary)
                     .font(.system(size: 18, weight: .medium))
                     .frame(maxWidth: loading ? 15 : .infinity)
                     .padding()

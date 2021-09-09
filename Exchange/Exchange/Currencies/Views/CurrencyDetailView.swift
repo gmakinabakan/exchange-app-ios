@@ -16,13 +16,13 @@ struct CurrencyDetailView: View, CurrencyDelegate {
     
     var body: some View {
         VStack {
-            BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.PrimaryDark)
+            BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.Primary)
                 .padding()
-            Headline2(text: "\(selectedCurrency.symbol) 1,00", color: TextColor.PrimaryDark)
+            Headline2(text: "\(selectedCurrency.symbol) 1,00", color: TextColor.Primary)
                 .padding()
             Headline2(text: "↑↓", color: TextColor.Secondary)
                 .padding()
-            Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.PrimaryDark)
+            Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.Primary)
                 .padding()
             Spacer()
             AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)

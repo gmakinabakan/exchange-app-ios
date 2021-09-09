@@ -19,9 +19,9 @@ struct WelcomeScreen: View {
             } else {
                 GeometryReader { geometry in
                     VStack(alignment: .leading){
-                        Headline1(text: "Welcome to the currency exchange rate application", color: TextColor.PrimaryDark)
+                        Headline1(text: "Welcome to the currency exchange rate application", color: TextColor.Primary)
                             .padding(EdgeInsets(top: 8.0 * inset, leading: inset, bottom: 8.0 * inset, trailing: inset))
-                        BodyText(text: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", color: TextColor.PrimaryDark)
+                        BodyText(text: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", color: TextColor.Primary)
                             .padding(EdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
                         Spacer()
                         AnimatedButton(text: "LET'S GO", action: getCurrencyList, isLoading: false)

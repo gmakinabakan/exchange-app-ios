@@ -12,8 +12,8 @@ struct CurrencyRow: View {
 
     var body: some View {
         HStack {
-            BodyText(text: currency.flag, color: TextColor.PrimaryDark)
-            BodyText(text: currency.abbreviation, color: TextColor.PrimaryDark)
+            BodyText(text: currency.flag, color: TextColor.Primary)
+            BodyText(text: currency.abbreviation, color: TextColor.Primary)
             Spacer()
             Caption(text: currency.name, color: TextColor.Secondary)
         }
