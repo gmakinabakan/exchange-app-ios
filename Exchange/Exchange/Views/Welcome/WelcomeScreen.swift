@@ -24,7 +24,7 @@ struct WelcomeScreen: View {
                         BodyText(text: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", color: TextColor.PrimaryDark)
                             .padding(EdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
                         Spacer()
-                        AnimatedButton(text: "LET'S GO", action: getCurrencyList)
+                        AnimatedButton(text: "LET'S GO", action: getCurrencyList, isLoading: false)
                             .frame(width: geometry.size.width - (2.0 * inset), alignment: .center)
                             .padding(inset)
                     }

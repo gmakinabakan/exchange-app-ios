@@ -25,7 +25,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
             Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.PrimaryDark)
                 .padding()
             Spacer()
-            AnimatedButton(text: "REFRESH", action: refreshCurrency)
+            AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
                 .padding()
         }
         .navigationTitle(selectedCurrency.name)

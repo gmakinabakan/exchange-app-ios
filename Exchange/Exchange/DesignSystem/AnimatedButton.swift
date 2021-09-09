@@ -8,25 +8,48 @@
 import SwiftUI
 
 struct AnimatedButton: View {
+    @State private var loading = false
+    
     var text: String
     var action: () -> Void
+    var isLoading: Bool
+    
+    var repeatingAnimation: Animation {
+        Animation.linear
+            .repeatForever(autoreverses: false)
+    }
+    
     var body: some View {
-        Group {
+        ZStack {
             Button(action: action) {
-                Text(text)
+                Text(loading ? "" : text)
                     .foregroundColor(TextColor.PrimaryLight)
                     .font(.system(size: 18, weight: .medium))
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: loading ? 15 : .infinity)
                     .padding()
+                    .background(PrimaryGradient)
+                    .cornerRadius(30)
+                    .animation(.default, value: loading)
             }
+            .disabled(loading)
+            .onAppear(perform: {
+                if (isLoading) {
+                    loading = true
+                }
+            })
+            Circle()
+                .fill(PrimaryGradient)
+                .frame(width: 55, height: 55)
+                .rotationEffect(Angle.degrees(loading ? 360 : 0))
+                .animation(repeatingAnimation, value: loading)
+                .opacity(loading ? 1 : 0)
+                .animation(.default, value: loading)
         }
-        .background(PrimaryGradient)
-        .cornerRadius(30)
     }
 }
 
 struct AnimatedButton_Previews: PreviewProvider {
     static var previews: some View {
-        AnimatedButton(text: "LET'S GO", action:{})
+        AnimatedButton(text: "LET'S GO", action:{}, isLoading: false)
     }
 }
