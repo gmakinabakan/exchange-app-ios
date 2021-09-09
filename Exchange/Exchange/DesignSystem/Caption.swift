@@ -9,16 +9,16 @@ import SwiftUI
 
 struct Caption: View {
     var text: String
-    var color: Int
+    var color: Color
     var body: some View {
         Text(text)
             .font(.system(size: 16, weight: .regular))
-            .foregroundColor(Color(UIColor(rgb: color)))
+            .foregroundColor(color)
     }
 }
 
 struct Caption_Previews: PreviewProvider {
     static var previews: some View {
-        Caption(text: "Hello, World!", color: TextColor.TextPrimaryDark)
+        Caption(text: "Hello, World!", color: TextColor.PrimaryDark)
     }
 }

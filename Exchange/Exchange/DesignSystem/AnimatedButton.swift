@@ -9,14 +9,12 @@ import SwiftUI
 
 struct AnimatedButton: View {
     var text: String
+    var action: () -> Void
     var body: some View {
         Group {
-            Button(action: {
-                // What to perform
-                print("HELLO")
-            }) {
+            Button(action: action) {
                 Text(text)
-                    .foregroundColor(Color(UIColor(rgb: TextColor.TextPrimaryLight)))
+                    .foregroundColor(TextColor.PrimaryLight)
                     .font(.system(size: 18, weight: .medium))
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     .padding()
@@ -29,6 +27,6 @@ struct AnimatedButton: View {
 
 struct AnimatedButton_Previews: PreviewProvider {
     static var previews: some View {
-        AnimatedButton(text: "LET'S GO")
+        AnimatedButton(text: "LET'S GO", action:{})
     }
 }

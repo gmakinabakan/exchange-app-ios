@@ -20,7 +20,7 @@ struct ContentView: View {
                     }
                 }
         } else {
-            Text("HELLO")
+            WelcomeScreen()
         }
     }
 }
