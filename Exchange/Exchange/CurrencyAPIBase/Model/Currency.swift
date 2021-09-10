@@ -8,9 +8,9 @@
 import Foundation
 
 struct Currency: Identifiable, Codable, Hashable {
-    var id: Int
+    var id: String
     var flag: String
     var abbreviation: String
     var name: String
-    var symbol: String
+    var localeString: String
 }

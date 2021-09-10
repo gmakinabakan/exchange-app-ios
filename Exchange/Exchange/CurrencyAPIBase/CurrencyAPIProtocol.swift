@@ -10,5 +10,6 @@ import Foundation
 protocol CurrencyAPIProtocol {
     var delegate: CurrencyAPIDataSource? {get set}
     func getExchangeValues(currencyCode: String, symbolList: [String])
+    func getCurrencyList()
     func setCache()
 }

@@ -9,4 +9,5 @@ import Foundation
 
 protocol CurrencyAPIDataSource {
     func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>)
+    func currencyListRetrieved(currencyList: [Currency])
 }

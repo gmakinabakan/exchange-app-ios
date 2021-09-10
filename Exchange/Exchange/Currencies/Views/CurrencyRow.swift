@@ -23,6 +23,6 @@ struct CurrencyRow: View {
 
 struct CurrencyRow_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyRow(currency: currencyList[0])
+        CurrencyRow(currency: Currency(id: "TRY", flag: "🇹🇷", abbreviation: "TRY", name: "Turkish Lira", localeString: "tr_TR"))
     }
 }

@@ -34,7 +34,6 @@
 		F7F74AA426E908390057C099 /* FixerRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AA326E908390057C099 /* FixerRestAPI.swift */; };
 		F7F74AA726E927CA0057C099 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AA626E927CA0057C099 /* CurrencyListView.swift */; };
 		F7F74AA926E929690057C099 /* CurrencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AA826E929690057C099 /* CurrencyRow.swift */; };
-		F7F74AAB26E929DC0057C099 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AAA26E929DC0057C099 /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +87,6 @@
 		F7F74AA326E908390057C099 /* FixerRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerRestAPI.swift; sourceTree = "<group>"; };
 		F7F74AA626E927CA0057C099 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		F7F74AA826E929690057C099 /* CurrencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRow.swift; sourceTree = "<group>"; };
-		F7F74AAA26E929DC0057C099 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +274,6 @@
 		F7B78E6826E953B5004E2F36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F7F74AAA26E929DC0057C099 /* CurrencyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				F728BF7026E8170B003E9054 /* CustomMessage.swift in Sources */,
 				F72DBA6B26E7F699005732FF /* Headline2.swift in Sources */,
 				F779ACE326EB8D23001E65E7 /* CurrenciesDependencyObject.swift in Sources */,
-				F7F74AAB26E929DC0057C099 /* CurrencyModel.swift in Sources */,
 				F72DBA3826E7DAB8005732FF /* ContentView.swift in Sources */,
 				F7D3A64F26E8083D00DC547C /* AnimatedButton.swift in Sources */,
 				F7F74AA926E929690057C099 /* CurrencyRow.swift in Sources */,
