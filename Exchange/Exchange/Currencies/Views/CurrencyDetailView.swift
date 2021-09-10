@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CurrencyDetailView: View, CurrencyDelegate {
-    
+    @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
     @State private var randomCurrency: (currency:Currency, exchangeRate: Double)? = nil
+    
     var selectedCurrency: Currency
-//    @State private var exchangeRate = 0.00
     let currencyHelper = CurrencyHelper()
     
     var body: some View {
@@ -22,8 +22,14 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                 .padding()
             Headline2(text: "↑↓", color: TextColor.Secondary)
                 .padding()
-            Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.Primary)
-                .padding()
+            if (randomCurrency == nil) {
+                Headline2(text: "N/A", color: TextColor.Primary)
+                    .redacted(reason: .placeholder)
+            } else {
+                Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.Primary)
+                    .padding()
+            }
+            
             Spacer()
             AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
                 .padding()
@@ -31,6 +37,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
         .navigationTitle(selectedCurrency.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
+            self.currencyHelper.initialize(currencyDependency: dependencyObject)
             currencyHelper.delegate = self
             refreshCurrency()
         })

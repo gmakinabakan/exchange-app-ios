@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct Currency: Identifiable, Codable, Hashable {
-    var id: Int
-    var flag: String
-    var abbreviation: String
-    var name: String
-    var symbol: String
-}
-
 var currencyList: [Currency] = [
     Currency(id: 1,flag: "🇪🇺",abbreviation: "EUR",name: "Euro", symbol: "€"),
     Currency(id: 2,flag: "🇺🇸",abbreviation: "USD",name: "US Dollar", symbol: "$"),
@@ -27,4 +19,3 @@ var currencyList: [Currency] = [
     Currency(id: 9,flag: "🇨🇿",abbreviation: "CZK",name: "Czech Koruna", symbol: "Kč"),
     Currency(id: 10,flag: "🇷🇺",abbreviation: "RUB",name: "Russian Ruble", symbol: "₽"),
 ]
-

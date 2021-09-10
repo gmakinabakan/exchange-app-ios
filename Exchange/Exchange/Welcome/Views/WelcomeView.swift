@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct WelcomeScreen: View {
+struct WelcomeView: View {
+    @EnvironmentObject var dependencyObject: WelcomeDependencyObject
     @State private var showWelcomeMessage = false
     @State private var navigateToNextScreen = false
     
@@ -15,7 +16,7 @@ struct WelcomeScreen: View {
     var body: some View {
         ZStack(alignment: .top) {
             if (navigateToNextScreen) {
-                CurrencyListView()
+                dependencyObject.nextView
             } else {
                 GeometryReader { geometry in
                     VStack(alignment: .leading){
@@ -56,7 +57,7 @@ struct WelcomeScreen: View {
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            WelcomeScreen()
+            WelcomeView()
         }
     }
 }

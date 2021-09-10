@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct CurrencyListView: View {
-//    init(){
-//        UINavigationBar.setAnimationsEnabled(true)
-//    }
     
     var body: some View {
         NavigationView {
