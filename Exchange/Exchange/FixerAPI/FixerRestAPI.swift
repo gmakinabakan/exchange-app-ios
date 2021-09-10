@@ -7,9 +7,10 @@
 
 import Foundation
 
-class FixerRestAPI: CurrencyAPIBase {
+class FixerRestAPI: CurrencyAPIProtocol {
+    var delegate: CurrencyAPIDataSource?
     
-    override public func getExchangeValues(currencyCode: String, symbolList: [String]) {
+    public func getExchangeValues(currencyCode: String, symbolList: [String]) {
         let url = URL(string: "\(FixerAPISettings.BaseURL)/latest?access_key=\(FixerAPISettings.SDKKey)&base=\(currencyCode)&symbols=\(symbolList.joined(separator: ","))")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
@@ -21,5 +22,8 @@ class FixerRestAPI: CurrencyAPIBase {
         }
 
         task.resume()
+    }
+    
+    func setCache() {
     }
 }

@@ -15,10 +15,6 @@ class CurrencyHelper {
     var delegate: CurrencyDelegate?
     var currencyDependencyObject: CurrenciesDependencyObject?
     
-//    init(currencyDependency: CurrenciesDependencyObject) {
-//        self.currencyDependencyObject = currencyDependency
-//        restAPI.delegate = self
-//    }
     func initialize (currencyDependency: CurrenciesDependencyObject) {
         self.currencyDependencyObject = currencyDependency
         self.currencyDependencyObject?.apiList[0].delegate = self
@@ -27,11 +23,7 @@ class CurrencyHelper {
     func getRandomCurrency(currentCurrency: Currency) {
         let filteredArray = currencyList.filter {$0.abbreviation != currentCurrency.abbreviation}
         self.currencyDependencyObject?.apiList[0].getExchangeValues(currencyCode: currentCurrency.abbreviation, symbolList: filteredArray.map({$0.abbreviation}))
-        
-//
-//        return filteredArray[Int.random(in: 0..<filteredArray.count)]
     }
-    
 }
 
 extension CurrencyHelper: CurrencyAPIDataSource {

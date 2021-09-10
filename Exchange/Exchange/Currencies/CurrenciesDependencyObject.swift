@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 final class CurrenciesDependencyObject: ObservableObject {
-    var apiList: [CurrencyAPIBase]
+    var apiList: [CurrencyAPIProtocol]
     
-    init(apiList: [CurrencyAPIBase]) {
+    init(apiList: [CurrencyAPIProtocol]) {
         self.apiList = apiList
     }
 }
