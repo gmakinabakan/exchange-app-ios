@@ -10,6 +10,7 @@ import Foundation
 class FixerRestAPI: CurrencyAPIProtocol {
     
     var delegate: CurrencyAPIDataSource?
+    var baseDelegate: DataSourceBaseProtocol?
     
     public func getExchangeValues(currencyCode: String, symbolList: [String]) {
         let url = URL(string: "\(FixerAPISettings.BaseURL)/latest?access_key=\(FixerAPISettings.SDKKey)&base=\(currencyCode)&symbols=\(symbolList.joined(separator: ","))")!
@@ -29,22 +30,8 @@ class FixerRestAPI: CurrencyAPIProtocol {
         let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(FixerAPISettings.SDKKey)")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
-            let decoder = JSONDecoder()
-            let fixerListResponse = try! decoder.decode(FixerListReponse.self, from: data)
+            let currencyArray = self.getCurrencyListFromAPIData(data: data)
             
-            let currencyFormatterAvailable = Array(Locale.availableIdentifiers).filter { word in return word.split(separator: "_").count > 1}
-            
-            let symbolArray = Array(fixerListResponse.symbols.keys)
-            var currencyArray: [Currency] = []
-            
-            symbolArray.forEach({
-                let countryCode = String(String($0).prefix(2))
-                if let formatToDisplay = currencyFormatterAvailable.first(where: {$0.hasSuffix("_\(countryCode)")} ) {
-
-                    let currency = Currency(id: $0, flag: self.flag(country: String(countryCode)), abbreviation: $0, name: fixerListResponse.symbols[$0]!, localeString: formatToDisplay)
-                    currencyArray.append(currency)
-                }
-            })
             DispatchQueue.main.async {
                 self.delegate?.currencyListRetrieved(currencyList: currencyArray)
             }
@@ -53,8 +40,27 @@ class FixerRestAPI: CurrencyAPIProtocol {
         task.resume()
     }
     
+    private func getCurrencyListFromAPIData(data: Data) -> [Currency] {
+        let decoder = JSONDecoder()
+        let fixerListResponse = try! decoder.decode(FixerListReponse.self, from: data)
+        
+        let currencyFormatterAvailable = Array(Locale.availableIdentifiers).filter { word in return word.split(separator: "_").count > 1}
+        
+        let symbolArray = Array(fixerListResponse.symbols.keys)
+        var currencyArray: [Currency] = []
+        
+        symbolArray.forEach({
+            let countryCode = String(String($0).prefix(2))
+            if let formatToDisplay = currencyFormatterAvailable.first(where: {$0.hasSuffix("_\(countryCode)")} ) {
+
+                let currency = Currency(id: $0, flag: self.flag(country: String(countryCode)), abbreviation: $0, name: fixerListResponse.symbols[$0]!, localeString: formatToDisplay)
+                currencyArray.append(currency)
+            }
+        })
+        return currencyArray
+    }
     
-    func flag(country:String) -> String {
+    private func flag(country:String) -> String {
         let base : UInt32 = 127397
         var s = ""
         for v in country.unicodeScalars {
@@ -64,6 +70,26 @@ class FixerRestAPI: CurrencyAPIProtocol {
     }
     
     func setCache() {
+    }
+}
+
+extension FixerRestAPI: APIBaseProtocol {
+    func initialCall() {
+        let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(FixerAPISettings.SDKKey)")!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            let encoder = JSONEncoder()
+            let currencyArray = self.getCurrencyListFromAPIData(data: data)
+//            print(currencyArray)
+            let jsonData = try! encoder.encode(currencyArray)
+//            let jsonData = try! JSONSerialization.data(withJSONObject: currencyArray, options: JSONSerialization.WritingOptions())
+
+            DispatchQueue.main.async {
+                self.baseDelegate?.initialDataRetrieved(data: jsonData)
+            }
+        }
+        
+        task.resume()
     }
 }
 

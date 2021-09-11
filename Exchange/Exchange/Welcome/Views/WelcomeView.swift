@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject var dependencyObject: WelcomeDependencyObject
+    @EnvironmentObject var dataTransferObject: DataTransferObservableObject
     @State private var showWelcomeMessage = false
     @State private var navigateToNextScreen = false
     
@@ -30,6 +31,7 @@ struct WelcomeView: View {
                             .padding(inset)
                     }
                     .onAppear(perform: {
+                        dependencyObject.initialDataAPI?.baseDelegate = self
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             showWelcomeMessage.toggle()
                         }
@@ -43,13 +45,20 @@ struct WelcomeView: View {
                         .onTapGesture {
                             showWelcomeMessage.toggle()
                         }
-                    
                 }
             }
         }
     }
     
     func getCurrencyList() {
+        dependencyObject.initialDataAPI?.initialCall()
+    }
+}
+
+extension WelcomeView: DataSourceBaseProtocol {
+    func initialDataRetrieved(data: Data) {
+        if let dataKey = dependencyObject.uniqueDataKey {  dataTransferObject.DataDictionary[dataKey] = data
+        }
         navigateToNextScreen.toggle()
     }
 }
