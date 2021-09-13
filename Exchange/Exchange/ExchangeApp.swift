@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct ExchangeApp: App {
-    @StateObject private var currenciesDependency = CurrenciesDependencyObject(apiList: [FixerRestAPI()], uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7")
+    @StateObject private var currenciesDependency = CurrenciesDependencyObject(apiList: [CurrencyLocalCache(), FixerRestAPI()], uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7")
     @StateObject private var welcomeDependency = WelcomeDependencyObject(nextView: AnyView(CurrencyListView()), initialDataAPI: FixerRestAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7")
     @StateObject private var dataTransferDependency = DataTransferObservableObject()
     

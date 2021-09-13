@@ -8,6 +8,12 @@
 import Foundation
 
 protocol CurrencyAPIDataSource {
-    func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>)
-    func currencyListRetrieved(currencyList: [Currency])
+    func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?)
+    func currencyListRetrieved(currencyList: [Currency], requestId: String?)
+}
+
+
+extension CurrencyAPIDataSource {
+    func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?) {}
+    func currencyListRetrieved(currencyList: [Currency], requestId: String?) {}
 }

@@ -31,7 +31,6 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                 Headline2(text: "N/A", color: TextColor.Primary)
                     .redacted(reason: .placeholder)
             } else {
-//                Headline2(text: "\(randomCurrency?.currency.symbol ?? "") \(randomCurrency?.exchangeRate ?? 0.00)", color: TextColor.Primary)
                 Headline2(text: "\(randomFormatter.string(from: NSNumber(value: randomCurrency!.exchangeRate))!)", color: TextColor.Primary)
                     .padding()
             }
@@ -50,17 +49,14 @@ struct CurrencyDetailView: View, CurrencyDelegate {
             currencyHelper.delegate = self
             currencyHelper.currencyList = currencyList
             refreshCurrency()
-            print("HERE")
         })
     }
     
     private func refreshCurrency() {
-        print("FISTTT")
         currencyHelper.getRandomCurrency(currentCurrency: selectedCurrency)
     }
     
     func randomCurrencySelected(currency: Currency, exchangeValue: Double) {
-        print("AND HERE")
         randomFormatter.locale = Locale(identifier: currency.localeString)
         randomCurrency = (currency: currency, exchangeRate: exchangeValue)
     }

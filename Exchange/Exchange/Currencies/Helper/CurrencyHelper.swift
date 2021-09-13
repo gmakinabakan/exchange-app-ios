@@ -16,30 +16,32 @@ class CurrencyHelper {
     var delegate: CurrencyDelegate?
     var currencyDependencyObject: CurrenciesDependencyObject?
     var currencyList: [Currency]?
+    var dataHelper: DataHelper?
     
     func initialize (currencyDependency: CurrenciesDependencyObject) {
+        self.dataHelper = DataHelper(apiList: currencyDependency.apiList)
+        self.dataHelper?.delegate = self
         self.currencyDependencyObject = currencyDependency
-        self.currencyDependencyObject?.apiList[0].delegate = self
     }
     
     func getRandomCurrency(currentCurrency: Currency) {
         if let filteredArray = (currencyList?.filter {$0.abbreviation != currentCurrency.abbreviation}) {
-            self.currencyDependencyObject?.apiList[0].getExchangeValues(currencyCode: currentCurrency.abbreviation, symbolList: filteredArray.map({$0.abbreviation}))
+            self.dataHelper?.getExchangeValues(currencyCode: currentCurrency.abbreviation, symbolList: filteredArray.map({$0.abbreviation}), requestId: nil)
         }
     }
     
     func getCurrencyList() {
-        self.currencyDependencyObject?.apiList[0].getCurrencyList()
+        self.currencyDependencyObject?.apiList[0].getCurrencyList(requestId: nil)
     }
 }
 
-extension CurrencyHelper: CurrencyAPIDataSource {
-    func currencyListRetrieved(currencyList: [Currency]) {
+extension CurrencyHelper: CurrencyAPIDataSource {    
+    func currencyListRetrieved(currencyList: [Currency], requestId: String?) {
         self.currencyList = currencyList
         self.delegate?.currencyListRetrieved(currencyList: currencyList)
     }
     
-    func exchangeValuesLoaded(baseCurrency: String, exchangeValues: Dictionary<String, Double>) {
+    func exchangeValuesLoaded(baseCurrency: String, exchangeValues: Dictionary<String, Double>, requestId: String?) {
         let randomAbbreviation = Array(exchangeValues.keys)[Int.random(in: 0..<exchangeValues.keys.count)]
         guard let randomCurrency = currencyList?.first(where: {$0.abbreviation == randomAbbreviation}) else {
             fatalError("\(randomAbbreviation) currency type is not supported")

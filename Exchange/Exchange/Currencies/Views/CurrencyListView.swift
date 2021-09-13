@@ -27,7 +27,7 @@ struct CurrencyListView: View, CurrencyDelegate {
                 var currencyList: [Currency]? = nil
                 if let keyData = dependencyObject.uniqueDataKey {
                     if let data = dataTransferObject.DataDictionary[keyData] {
-                        print("Retrieving data from data transfer")
+                        print("Retrieving data from data transfer object")
                         let decoder = JSONDecoder()
                         currencyList = try! decoder.decode([Currency].self, from: data)
                     }

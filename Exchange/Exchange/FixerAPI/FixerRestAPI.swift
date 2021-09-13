@@ -8,32 +8,33 @@
 import Foundation
 
 class FixerRestAPI: CurrencyAPIProtocol {
-    
     var delegate: CurrencyAPIDataSource?
     var baseDelegate: DataSourceBaseProtocol?
     
-    public func getExchangeValues(currencyCode: String, symbolList: [String]) {
+    public func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {
+        print("Retrieving exchange values from Fixer API")
         let url = URL(string: "\(FixerAPISettings.BaseURL)/latest?access_key=\(FixerAPISettings.SDKKey)&base=\(currencyCode)&symbols=\(symbolList.joined(separator: ","))")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()
             let fixerResponse = try! decoder.decode(FixerResponse.self, from: data)
             DispatchQueue.main.async {
-                self.delegate?.exchangeValuesLoaded(baseCurrency: currencyCode, exchangeValues: fixerResponse.rates)
+                self.delegate?.exchangeValuesLoaded(baseCurrency: currencyCode, exchangeValues: fixerResponse.rates, requestId: requestId)
             }
         }
 
         task.resume()
     }
     
-    public func getCurrencyList() {
+    public func getCurrencyList(requestId: String?) {
+        print("Retrieving currency list from Fixer API")
         let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(FixerAPISettings.SDKKey)")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             let currencyArray = self.getCurrencyListFromAPIData(data: data)
             
             DispatchQueue.main.async {
-                self.delegate?.currencyListRetrieved(currencyList: currencyArray)
+                self.delegate?.currencyListRetrieved(currencyList: currencyArray, requestId: requestId)
             }
         }
         
@@ -68,21 +69,17 @@ class FixerRestAPI: CurrencyAPIProtocol {
         }
         return String(s)
     }
-    
-    func setCache() {
-    }
 }
 
 extension FixerRestAPI: APIBaseProtocol {
     func initialCall() {
+        print("Retrieving currency list from Fixer API (Initial API)")
         let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(FixerAPISettings.SDKKey)")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             let encoder = JSONEncoder()
             let currencyArray = self.getCurrencyListFromAPIData(data: data)
-//            print(currencyArray)
             let jsonData = try! encoder.encode(currencyArray)
-//            let jsonData = try! JSONSerialization.data(withJSONObject: currencyArray, options: JSONSerialization.WritingOptions())
 
             DispatchQueue.main.async {
                 self.baseDelegate?.initialDataRetrieved(data: jsonData)

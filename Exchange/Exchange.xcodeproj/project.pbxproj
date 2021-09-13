@@ -38,6 +38,9 @@
 		F7FB2FD526ECBE4A004BA7FE /* APIBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FD426ECBE4A004BA7FE /* APIBaseProtocol.swift */; };
 		F7FB2FD726ECFBAF004BA7FE /* DataSourceBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FD626ECFBAF004BA7FE /* DataSourceBaseProtocol.swift */; };
 		F7FB2FDB26ED6183004BA7FE /* DataTransferObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FDA26ED6183004BA7FE /* DataTransferObservableObject.swift */; };
+		F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */; };
+		F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE126EE0309004BA7FE /* CachedData.swift */; };
+		F7FB2FE526EE7E84004BA7FE /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		F7FB2FD426ECBE4A004BA7FE /* APIBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBaseProtocol.swift; sourceTree = "<group>"; };
 		F7FB2FD626ECFBAF004BA7FE /* DataSourceBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceBaseProtocol.swift; sourceTree = "<group>"; };
 		F7FB2FDA26ED6183004BA7FE /* DataTransferObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferObservableObject.swift; sourceTree = "<group>"; };
+		F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLocalCache.swift; sourceTree = "<group>"; };
+		F7FB2FE126EE0309004BA7FE /* CachedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedData.swift; sourceTree = "<group>"; };
+		F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 		F72DBA3426E7DAB8005732FF /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				F7FB2FDD26EDD933004BA7FE /* LocalCache */,
 				F7FB2FD126ECBD91004BA7FE /* Common */,
 				F779ACE426EBAEC8001E65E7 /* Welcome */,
 				F779ACD526EB6B8E001E65E7 /* FixerAPI */,
@@ -280,17 +287,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F7B78E6826E953B5004E2F36 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		F7B78E6926E953C7004E2F36 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				F7B78E6A26E953DE004E2F36 /* CurrencyHelper.swift */,
+				F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -299,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				F7B78E6926E953C7004E2F36 /* Helper */,
-				F7B78E6826E953B5004E2F36 /* Model */,
 				F7B78E6726E9535A004E2F36 /* Views */,
 				F779ACE226EB8D23001E65E7 /* CurrenciesDependencyObject.swift */,
 			);
@@ -331,6 +331,23 @@
 				F7FB2FDA26ED6183004BA7FE /* DataTransferObservableObject.swift */,
 			);
 			path = DependencyObjects;
+			sourceTree = "<group>";
+		};
+		F7FB2FDD26EDD933004BA7FE /* LocalCache */ = {
+			isa = PBXGroup;
+			children = (
+				F7FB2FE326EE0315004BA7FE /* Model */,
+				F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */,
+			);
+			path = LocalCache;
+			sourceTree = "<group>";
+		};
+		F7FB2FE326EE0315004BA7FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7FB2FE126EE0309004BA7FE /* CachedData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,11 +488,13 @@
 				F7FB2FDB26ED6183004BA7FE /* DataTransferObservableObject.swift in Sources */,
 				F7B78E6B26E953DE004E2F36 /* CurrencyHelper.swift in Sources */,
 				F7FB2FD726ECFBAF004BA7FE /* DataSourceBaseProtocol.swift in Sources */,
+				F7FB2FE526EE7E84004BA7FE /* DataHelper.swift in Sources */,
 				F72DBA6926E7F5DB005732FF /* Headline1.swift in Sources */,
 				F7B78E6626E9341B004E2F36 /* CurrencyDetailView.swift in Sources */,
 				F7FB2FD526ECBE4A004BA7FE /* APIBaseProtocol.swift in Sources */,
 				F728BF7026E8170B003E9054 /* CustomMessage.swift in Sources */,
 				F72DBA6B26E7F699005732FF /* Headline2.swift in Sources */,
+				F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */,
 				F779ACE326EB8D23001E65E7 /* CurrenciesDependencyObject.swift in Sources */,
 				F72DBA3826E7DAB8005732FF /* ContentView.swift in Sources */,
 				F7D3A64F26E8083D00DC547C /* AnimatedButton.swift in Sources */,
@@ -484,6 +503,7 @@
 				F7F74AA426E908390057C099 /* FixerRestAPI.swift in Sources */,
 				F72DBA6626E7F43E005732FF /* WelcomeView.swift in Sources */,
 				F72DBA6F26E7F733005732FF /* Caption.swift in Sources */,
+				F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */,
 				F72DBA3626E7DAB8005732FF /* ExchangeApp.swift in Sources */,
 				F72DBA7126E800D1005732FF /* Constants.swift in Sources */,
 				F7F74AA726E927CA0057C099 /* CurrencyListView.swift in Sources */,
