@@ -41,6 +41,7 @@
 		F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */; };
 		F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE126EE0309004BA7FE /* CachedData.swift */; };
 		F7FB2FE526EE7E84004BA7FE /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */; };
+		F7FB2FE726EFE6F0004BA7FE /* CurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLocalCache.swift; sourceTree = "<group>"; };
 		F7FB2FE126EE0309004BA7FE /* CachedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedData.swift; sourceTree = "<group>"; };
 		F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 			children = (
 				F7B78E6A26E953DE004E2F36 /* CurrencyHelper.swift */,
 				F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */,
+				F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				F779ACDF26EB74F7001E65E7 /* Currency.swift in Sources */,
 				F7F74AA426E908390057C099 /* FixerRestAPI.swift in Sources */,
 				F72DBA6626E7F43E005732FF /* WelcomeView.swift in Sources */,
+				F7FB2FE726EFE6F0004BA7FE /* CurrencyDelegate.swift in Sources */,
 				F72DBA6F26E7F733005732FF /* Caption.swift in Sources */,
 				F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */,
 				F72DBA3626E7DAB8005732FF /* ExchangeApp.swift in Sources */,
