@@ -12,7 +12,7 @@
 		F72DBA3826E7DAB8005732FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA3726E7DAB8005732FF /* ContentView.swift */; };
 		F72DBA3A26E7DABE005732FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72DBA3926E7DABE005732FF /* Assets.xcassets */; };
 		F72DBA3D26E7DABE005732FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72DBA3C26E7DABE005732FF /* Preview Assets.xcassets */; };
-		F72DBA4826E7DABE005732FF /* ExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA4726E7DABE005732FF /* ExchangeTests.swift */; };
+		F72DBA4826E7DABE005732FF /* SaveLocalCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */; };
 		F72DBA5326E7DABE005732FF /* ExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA5226E7DABE005732FF /* ExchangeUITests.swift */; };
 		F72DBA6226E7F04F005732FF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA6126E7F04F005732FF /* SplashScreen.swift */; };
 		F72DBA6626E7F43E005732FF /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA6526E7F43E005732FF /* WelcomeView.swift */; };
@@ -42,6 +42,7 @@
 		F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE126EE0309004BA7FE /* CachedData.swift */; };
 		F7FB2FE526EE7E84004BA7FE /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */; };
 		F7FB2FE726EFE6F0004BA7FE /* CurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */; };
+		F7FB2FE926EFFABD004BA7FE /* RetrieveLocalCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,7 @@
 		F72DBA3C26E7DABE005732FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F72DBA3E26E7DABE005732FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72DBA4326E7DABE005732FF /* ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F72DBA4726E7DABE005732FF /* ExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTests.swift; sourceTree = "<group>"; };
+		F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocalCacheTest.swift; sourceTree = "<group>"; };
 		F72DBA4926E7DABE005732FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72DBA4E26E7DABE005732FF /* ExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72DBA5226E7DABE005732FF /* ExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeUITests.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		F7FB2FE126EE0309004BA7FE /* CachedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedData.swift; sourceTree = "<group>"; };
 		F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDelegate.swift; sourceTree = "<group>"; };
+		F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveLocalCacheTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,8 @@
 		F72DBA4626E7DABE005732FF /* ExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				F72DBA4726E7DABE005732FF /* ExchangeTests.swift */,
+				F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */,
+				F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */,
 				F72DBA4926E7DABE005732FF /* Info.plist */,
 			);
 			path = ExchangeTests;
@@ -520,7 +523,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72DBA4826E7DABE005732FF /* ExchangeTests.swift in Sources */,
+				F7FB2FE926EFFABD004BA7FE /* RetrieveLocalCacheTest.swift in Sources */,
+				F72DBA4826E7DABE005732FF /* SaveLocalCacheTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
