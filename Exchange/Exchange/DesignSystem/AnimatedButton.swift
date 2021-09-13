@@ -30,6 +30,7 @@ struct AnimatedButton: View {
                     .background(PrimaryGradient)
                     .cornerRadius(30)
                     .animation(.default, value: loading)
+                    .shadow(radius: 5, x: 0, y: 4)
             }
             .disabled(loading)
             .onAppear(perform: {
@@ -44,6 +45,7 @@ struct AnimatedButton: View {
                 .animation(repeatingAnimation, value: loading)
                 .opacity(loading ? 1 : 0)
                 .animation(.default, value: loading)
+                .shadow(radius: 5, x: 0, y: 4)
         }
     }
 }

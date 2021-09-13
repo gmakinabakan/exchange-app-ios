@@ -10,13 +10,16 @@ import Combine
 import SwiftUI
 
 final class WelcomeDependencyObject: ObservableObject, DataTransferProtocol {
-    var uniqueDataKey: String?
-    var initialDataAPI: APIBaseProtocol?
     var nextView: AnyView
+    var headerMessage: String
+    var captionMessage: String
+    var initialDataAPI: APIBaseProtocol?
+    var uniqueDataKey: String?
     
-    
-    init(nextView: AnyView, initialDataAPI: APIBaseProtocol?, uniqueDataKey:String?) {
+    init(nextView: AnyView, headerMessage: String, captionMessage: String, initialDataAPI: APIBaseProtocol?, uniqueDataKey:String?) {
         self.nextView = nextView
+        self.headerMessage = headerMessage
+        self.captionMessage = captionMessage
         self.initialDataAPI = initialDataAPI
         self.uniqueDataKey = uniqueDataKey
     }

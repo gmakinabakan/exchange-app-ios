@@ -12,6 +12,11 @@ protocol CurrencyDelegate {
     func currencyListRetrieved(currencyList: [Currency])
 }
 
+extension CurrencyDelegate {
+    func randomCurrencySelected(currency: Currency, exchangeValue: Double) {}
+    func currencyListRetrieved(currencyList: [Currency]) {}
+}
+
 class CurrencyHelper {
     var delegate: CurrencyDelegate?
     var currencyDependencyObject: CurrenciesDependencyObject?

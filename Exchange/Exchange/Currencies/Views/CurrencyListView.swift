@@ -35,8 +35,7 @@ struct CurrencyListView: View, CurrencyDelegate {
                 }
                 if let currenyListToAssign = currencyList {
                     self.currencyList = currenyListToAssign
-                }
-                else {
+                } else {
                     print("Retrieving data from API")
                     self.currencyHelper.initialize(currencyDependency: dependencyObject)
                     currencyHelper.delegate = self
@@ -49,12 +48,12 @@ struct CurrencyListView: View, CurrencyDelegate {
     func currencyListRetrieved(currencyList: [Currency]) {
         self.currencyList = currencyList
     }
-    
-    func randomCurrencySelected(currency: Currency, exchangeValue: Double) {}
 }
 
 struct CurrencyListView_Previews: PreviewProvider {
     static var previews: some View {
         CurrencyListView()
+            .environmentObject(DataTransferObservableObject())
+            .environmentObject(CurrenciesDependencyObject(apiList: [FixerRestAPI()], uniqueDataKey: nil))
     }
 }

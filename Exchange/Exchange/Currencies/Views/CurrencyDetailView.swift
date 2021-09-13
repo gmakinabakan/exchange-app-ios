@@ -11,6 +11,7 @@ import Swift
 struct CurrencyDetailView: View, CurrencyDelegate {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
     @State private var randomCurrency: (currency:Currency, exchangeRate: Double)? = nil
+    @State private var isLoading = false
     
     var selectedCurrency: Currency
     var currencyList: [Currency]
@@ -25,7 +26,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                 .padding()
             Headline2(text: "\(localFormatter.string(from: 1.00)!)", color: TextColor.Primary)
                 .padding()
-            Headline2(text: "↑↓", color: TextColor.Secondary)
+            Headline2(text: "↑↓", color: ApplicationColor.Primary)
                 .padding()
             if (randomCurrency == nil) {
                 Headline2(text: "N/A", color: TextColor.Primary)
@@ -36,8 +37,13 @@ struct CurrencyDetailView: View, CurrencyDelegate {
             }
             
             Spacer()
-            AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
-                .padding()
+            if (isLoading) {
+                AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: true)
+                    .padding()
+            } else {
+                AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
+                    .padding()
+            }
         }
         .navigationTitle(selectedCurrency.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -54,18 +60,19 @@ struct CurrencyDetailView: View, CurrencyDelegate {
     
     private func refreshCurrency() {
         currencyHelper.getRandomCurrency(currentCurrency: selectedCurrency)
+        isLoading.toggle()
     }
     
     func randomCurrencySelected(currency: Currency, exchangeValue: Double) {
         randomFormatter.locale = Locale(identifier: currency.localeString)
         randomCurrency = (currency: currency, exchangeRate: exchangeValue)
+        isLoading.toggle()
     }
-    
-    func currencyListRetrieved(currencyList: [Currency]) {}
 }
 
 struct CurrencyDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CurrencyDetailView(selectedCurrency: Currency(id: "TRY", flag: "🇹🇷", abbreviation: "TRY", name: "Turkish Lira", localeString: "tr_TR"), currencyList: [Currency(id: "TRY", flag: "🇹🇷", abbreviation: "TRY", name: "Turkish Lira", localeString: "tr_TR")])
+            .environmentObject(CurrenciesDependencyObject(apiList: [FixerRestAPI()], uniqueDataKey: nil))
     }
 }
