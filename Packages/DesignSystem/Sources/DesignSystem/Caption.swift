@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct Caption: View {
+public struct Caption: View {
     var text: String
     var color: Color
-    var body: some View {
+    
+    public init(text: String, color:Color) {
+        self.text = text
+        self.color = color
+    }
+    
+    public var body: some View {
         Text(text)
             .font(.system(size: 16, weight: .regular))
             .foregroundColor(color)

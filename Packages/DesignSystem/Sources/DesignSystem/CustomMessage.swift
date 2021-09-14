@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct CustomMessage: View {
+public struct CustomMessage: View {
     var text: String
-    var body: some View {
+    
+    public init(text: String) {
+        self.text = text
+    }
+    
+    public var body: some View {
         Text(text)
             .foregroundColor(TextColor.OnPrimary)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)

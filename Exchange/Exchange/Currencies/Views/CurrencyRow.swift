@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CurrencyAPIBase
+import DesignSystem
 
 struct CurrencyRow: View {
     var currency: Currency

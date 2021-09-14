@@ -7,19 +7,25 @@
 
 import SwiftUI
 
-struct AnimatedButton: View {
+public struct AnimatedButton: View {
     @State private var loading = false
     
     var text: String
     var action: () -> Void
     var isLoading: Bool
     
+    public init(text: String, action: @escaping () -> Void, isLoading: Bool) {
+        self.text = text
+        self.action = action
+        self.isLoading = isLoading
+    }
+    
     var repeatingAnimation: Animation {
         Animation.linear
             .repeatForever(autoreverses: false)
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Button(action: action) {
                 Text(loading ? "" : text)

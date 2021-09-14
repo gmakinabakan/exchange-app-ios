@@ -8,6 +8,7 @@
 import SwiftUI
 import Swift
 import CurrencyAPIBase
+import DesignSystem
 
 struct CurrencyDetailView: View, CurrencyDelegate {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
