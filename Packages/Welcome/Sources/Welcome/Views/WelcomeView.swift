@@ -61,6 +61,8 @@ public struct WelcomeView: View {
                 }
             }
         }
+        .background(ApplicationBackgroundColor.BackgroundColor)
+        .ignoresSafeArea()
     }
     
     func getCurrencyList() {

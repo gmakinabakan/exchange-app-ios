@@ -8,6 +8,7 @@
 import SwiftUI
 import Common
 import CurrencyAPIBase
+import DesignSystem
 
 public struct CurrencyListView: View, CurrencyDelegate {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
@@ -31,6 +32,8 @@ public struct CurrencyListView: View, CurrencyDelegate {
                 }
             }
             .navigationTitle("Currencies")
+            .background(ApplicationBackgroundColor.BackgroundColor)
+            .ignoresSafeArea()
             .onAppear(perform: {
                 var currencyList: [Currency]? = nil
                 if let keyData = dependencyObject.uniqueDataKey {

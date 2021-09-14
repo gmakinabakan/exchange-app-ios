@@ -47,9 +47,10 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                     .padding()
             }
         }
-        
         .navigationTitle(selectedCurrency.name)
         .navigationBarTitleDisplayMode(.inline)
+        .background(ApplicationBackgroundColor.BackgroundColor)
+        .ignoresSafeArea()
         .onAppear(perform: {
             localFormatter.numberStyle = .currency
             localFormatter.locale = Locale(identifier: selectedCurrency.localeString)
