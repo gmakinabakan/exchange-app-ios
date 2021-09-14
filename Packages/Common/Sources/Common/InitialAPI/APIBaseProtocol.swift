@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIBaseProtocol {
+public protocol APIBaseProtocol {
     var baseDelegate: DataSourceBaseProtocol? {get set}
     func initialCall()
 }

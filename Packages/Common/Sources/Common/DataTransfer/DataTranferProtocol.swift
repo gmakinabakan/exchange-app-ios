@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DataTransferProtocol {
+public protocol DataTransferProtocol {
     var uniqueDataKey: String? {get set}
 }

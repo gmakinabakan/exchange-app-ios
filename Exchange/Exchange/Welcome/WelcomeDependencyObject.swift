@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import Common
 
 final class WelcomeDependencyObject: ObservableObject, DataTransferProtocol {
     var nextView: AnyView

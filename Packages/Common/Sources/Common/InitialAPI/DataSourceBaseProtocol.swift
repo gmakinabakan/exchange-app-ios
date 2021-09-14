@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DataSourceBaseProtocol {
+public protocol DataSourceBaseProtocol {
     func initialDataRetrieved(data: Data)
 }
