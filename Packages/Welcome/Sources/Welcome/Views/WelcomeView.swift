@@ -9,7 +9,7 @@ import SwiftUI
 import Common
 import DesignSystem
 
-struct WelcomeView: View {
+public struct WelcomeView: View {
     @EnvironmentObject var dependencyObject: WelcomeDependencyObject
     @EnvironmentObject var dataTransferObject: DataTransferObservableObject
     @State private var showWelcomeMessage = false
@@ -17,7 +17,10 @@ struct WelcomeView: View {
     @State private var isLoading = false
     
     let inset:CGFloat = 10.0
-    var body: some View {
+    
+    public init() {}
+    
+    public var body: some View {
         ZStack(alignment: .top) {
             if (navigateToNextScreen) {
                 dependencyObject.nextView
@@ -67,7 +70,7 @@ struct WelcomeView: View {
 }
 
 extension WelcomeView: DataSourceBaseProtocol {
-    func initialDataRetrieved(data: Data) {
+    public func initialDataRetrieved(data: Data) {
         if let dataKey = dependencyObject.uniqueDataKey {  dataTransferObject.DataDictionary[dataKey] = data
         }
         navigateToNextScreen.toggle()
@@ -86,7 +89,7 @@ struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             WelcomeView()
-                .environmentObject(WelcomeDependencyObject(nextView: AnyView(CurrencyListView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", initialDataAPI: DummyAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
+                .environmentObject(WelcomeDependencyObject(nextView: AnyView(WelcomeView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", initialDataAPI: DummyAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
         }
     }
 }

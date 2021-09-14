@@ -10,6 +10,7 @@ import Common
 import CurrencyAPIBase
 import LocalCache
 import FixerAPI
+import Welcome
 
 @main
 struct ExchangeApp: App {

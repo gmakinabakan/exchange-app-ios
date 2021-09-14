@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Welcome
 
 struct ContentView: View {
     @State private var showSplashScreen = true
