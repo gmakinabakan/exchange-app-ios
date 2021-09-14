@@ -18,7 +18,7 @@ public struct BodyText: View {
     
     public var body: some View {
         Text(text)
-            .font(.system(size: 18, weight: .regular))
+            .font(ApplicationFont.Body)
             .foregroundColor(color)
     }
 }

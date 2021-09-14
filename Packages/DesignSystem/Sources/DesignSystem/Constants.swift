@@ -38,4 +38,27 @@ public struct ApplicationBackgroundColor {
     }
 }
 
+struct ApplicationFont {
+    static var Headline1: Font {
+        return Font(UIFont.systemFont(ofSize: 42, weight: .heavy))
+    }
+    
+    static var Headline2: Font {
+        return Font(UIFont.systemFont(ofSize: 24, weight: .bold))
+    }
+    
+    static var Button: Font {
+        return Font(UIFont.systemFont(ofSize: 18, weight: .medium))
+    }
+    
+    static var Body: Font {
+        return Font(UIFont.systemFont(ofSize: 18, weight: .regular))
+    }
+    
+    static var Caption: Font {
+        return Font(UIFont.systemFont(ofSize: 16, weight: .regular))
+    }
+    
+}
+
 public var PrimaryGradient = LinearGradient(gradient: Gradient(colors: [ApplicationColor.Secondary,ApplicationColor.Primary]), startPoint: UnitPoint(x: 0, y: 0), endPoint: UnitPoint(x: 1, y: 1))

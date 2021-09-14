@@ -18,7 +18,7 @@ public struct Headline2: View {
     
     public var body: some View {
         Text(text)
-            .font(.system(size: 24, weight: .bold))
+            .font(ApplicationFont.Headline2)
             .foregroundColor(color)
     }
 }

@@ -30,7 +30,7 @@ public struct AnimatedButton: View {
             Button(action: action) {
                 Text(loading ? "" : text)
                     .foregroundColor(TextColor.OnPrimary)
-                    .font(.system(size: 18, weight: .medium))
+                    .font(ApplicationFont.Button)
                     .frame(maxWidth: loading ? 15 : .infinity)
                     .padding()
                     .background(PrimaryGradient)
