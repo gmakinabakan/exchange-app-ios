@@ -80,6 +80,43 @@ class RetrieveLocalCacheTest: XCTestCase, CurrencyAPIDataSource {
         XCTAssertEqual(self.retrievedCurrencyList, [])
         XCTAssertEqual(self.retrievedRequestId,requestId)
     }
+    
+    func testGetCurrecyListWithCache () {
+        //Given
+        let currencyLocalCache = CurrencyLocalCache()
+        currencyLocalCache.delegate = self
+        let requestId = UUID().uuidString
+        let currencyList = createCurrencyList()
+        currencyLocalCache.setCurrencyListCache(currencyArray: currencyList, expiresIn: 300)
+        self.fileURLToDelete = createTempURL(fileName: "CurrencyArray.data")
+        
+        //When
+        expectation = expectation(description: "Currency list call")
+        currencyLocalCache.getCurrencyList(requestId: requestId)
+        waitForExpectations(timeout: 2)
+        
+        //What
+        XCTAssertEqual(self.retrievedCurrencyList, currencyList)
+        XCTAssertEqual(self.retrievedRequestId, requestId)
+    }
+    
+    func testGetCurrecyListWithNoRequestId () {
+        //Given
+        let currencyLocalCache = CurrencyLocalCache()
+        currencyLocalCache.delegate = self
+        let currencyList = createCurrencyList()
+        currencyLocalCache.setCurrencyListCache(currencyArray: currencyList, expiresIn: 300)
+        self.fileURLToDelete = createTempURL(fileName: "CurrencyArray.data")
+        
+        //When
+        expectation = expectation(description: "Currency list call with no request id")
+        currencyLocalCache.getCurrencyList(requestId: nil)
+        waitForExpectations(timeout: 2)
+        
+        //What
+        XCTAssertEqual(self.retrievedCurrencyList, currencyList)
+        XCTAssertNil(self.retrievedRequestId)
+    }
 
     func testEmptyCacheForExchangeValues() throws {
         //Given
@@ -120,6 +157,47 @@ class RetrieveLocalCacheTest: XCTestCase, CurrencyAPIDataSource {
         XCTAssertEqual(self.retrievedRequestId, requestId)
     }
     
+    func testExchangeValuesWithCache () {
+        //Given
+        let currencyLocalCache = CurrencyLocalCache()
+        currencyLocalCache.delegate = self
+        let requestId = UUID().uuidString
+        let exchangeValues = createExchangeValues()
+        currencyLocalCache.setCurrencyExchangeValueCache(baseCurrency: self.baseCurrency, exchangeValues: exchangeValues, symbolList: self.symbolList, expiresIn: 300)
+        let hash = createHashForSymbolList(symbolList: self.symbolList)
+        self.fileURLToDelete = createTempURL(fileName: "\(self.baseCurrency)_\(hash)_ExchangeValue.data")
+        
+        //When
+        expectation = expectation(description: "Exchange values list call")
+        currencyLocalCache.getExchangeValues(currencyCode: self.baseCurrency, symbolList: self.symbolList, requestId: requestId)
+        waitForExpectations(timeout: 2)
+        
+        //What
+        XCTAssertEqual(self.retrievedExchangeValues, exchangeValues)
+        XCTAssertEqual(self.retrievedBaseCurrency, self.baseCurrency)
+        XCTAssertEqual(self.retrievedRequestId, requestId)
+    }
+    
+    func testGetExchangeValuesWithNoRequestId () {
+        //Given
+        let currencyLocalCache = CurrencyLocalCache()
+        currencyLocalCache.delegate = self
+        let exchangeValues = createExchangeValues()
+        currencyLocalCache.setCurrencyExchangeValueCache(baseCurrency: self.baseCurrency, exchangeValues: exchangeValues, symbolList: self.symbolList, expiresIn: 300)
+        let hash = createHashForSymbolList(symbolList: self.symbolList)
+        self.fileURLToDelete = createTempURL(fileName: "\(self.baseCurrency)_\(hash)_ExchangeValue.data")
+        
+        //When
+        expectation = expectation(description: "Exchange values call with no request id")
+        currencyLocalCache.getExchangeValues(currencyCode: self.baseCurrency, symbolList: self.symbolList, requestId: nil)
+        waitForExpectations(timeout: 2)
+        
+        //What
+        XCTAssertEqual(self.retrievedExchangeValues, exchangeValues)
+        XCTAssertEqual(self.retrievedBaseCurrency, self.baseCurrency)
+        XCTAssertNil(self.retrievedRequestId)
+    }
+    
     func currencyListRetrieved(currencyList: [Currency], requestId: String?) {
         self.retrievedCurrencyList = currencyList
         self.retrievedRequestId = requestId
@@ -153,7 +231,7 @@ class RetrieveLocalCacheTest: XCTestCase, CurrencyAPIDataSource {
     
     func createHashForSymbolList(symbolList: [String]) -> Int {
         var hasher = Hasher()
-        hasher.combine(object)
+        hasher.combine(symbolList)
         return hasher.finalize()
     }
 }
