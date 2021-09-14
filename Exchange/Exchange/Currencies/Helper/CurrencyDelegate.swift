@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurrencyAPIBase
 
 protocol CurrencyDelegate {
     func randomCurrencySelected(currency: Currency, exchangeValue: Double)

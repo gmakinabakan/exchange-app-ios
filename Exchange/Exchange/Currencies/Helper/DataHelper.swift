@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurrencyAPIBase
 
 struct RequestInformation {
     var apiIndex: Int

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurrencyAPIBase
 
 class CurrencyHelper {
     var delegate: CurrencyDelegate?

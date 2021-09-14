@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol CurrencyAPIDataSource {
+public protocol CurrencyAPIDataSource {
     func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?)
     func currencyListRetrieved(currencyList: [Currency], requestId: String?)
 }
 
 
-extension CurrencyAPIDataSource {
+public extension CurrencyAPIDataSource {
     func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?) {}
     func currencyListRetrieved(currencyList: [Currency], requestId: String?) {}
 }

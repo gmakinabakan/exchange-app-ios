@@ -7,6 +7,7 @@
 
 import Foundation
 import Common
+import CurrencyAPIBase
 
 class FixerRestAPI: CurrencyAPIProtocol {
     var delegate: CurrencyAPIDataSource?

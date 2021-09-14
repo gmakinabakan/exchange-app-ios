@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Common
+import CurrencyAPIBase
 
 final class CurrenciesDependencyObject: ObservableObject, DataTransferProtocol {
     var uniqueDataKey: String?

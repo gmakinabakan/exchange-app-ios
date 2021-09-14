@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CurrencyAPIBase
 
 class CurrencyLocalCache: CurrencyAPIProtocol {
     var delegate: CurrencyAPIDataSource?

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CurrencyAPIBase
 
 struct CurrencyRow: View {
     var currency: Currency

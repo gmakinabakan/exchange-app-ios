@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Common
+import CurrencyAPIBase
 
 @main
 struct ExchangeApp: App {
