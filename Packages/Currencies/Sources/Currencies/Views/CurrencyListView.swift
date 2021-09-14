@@ -22,7 +22,10 @@ public struct CurrencyListView: View, CurrencyDelegate {
         NavigationView {
             List() {
                 ForEach(currencyList) { item in
-                    NavigationLink(destination: CurrencyDetailView(selectedCurrency: item, currencyList: currencyList)){
+                    ZStack {
+                        NavigationLink(destination: CurrencyDetailView(selectedCurrency: item, currencyList: currencyList)) {
+                            EmptyView()
+                        }.hidden()
                         CurrencyRow(currency: item)
                     }
                 }
