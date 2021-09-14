@@ -9,13 +9,16 @@ import SwiftUI
 import Common
 import CurrencyAPIBase
 
-struct CurrencyListView: View, CurrencyDelegate {
+public struct CurrencyListView: View, CurrencyDelegate {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
     @EnvironmentObject var dataTransferObject: DataTransferObservableObject
     @State private var currencyList: [Currency] = []
     
     let currencyHelper = CurrencyHelper()
-    var body: some View {
+    
+    public init() {}
+    
+    public var body: some View {
         NavigationView {
             List() {
                 ForEach(currencyList) { item in

@@ -11,6 +11,7 @@ import CurrencyAPIBase
 import LocalCache
 import FixerAPI
 import Welcome
+import Currencies
 
 @main
 struct ExchangeApp: App {

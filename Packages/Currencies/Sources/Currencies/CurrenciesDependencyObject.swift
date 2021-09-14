@@ -10,11 +10,11 @@ import Combine
 import Common
 import CurrencyAPIBase
 
-final class CurrenciesDependencyObject: ObservableObject, DataTransferProtocol {
-    var uniqueDataKey: String?
-    var apiList: [CurrencyAPIProtocol]
+public final class CurrenciesDependencyObject: ObservableObject, DataTransferProtocol {
+    public var uniqueDataKey: String?
+    public var apiList: [CurrencyAPIProtocol]
     
-    init(apiList: [CurrencyAPIProtocol], uniqueDataKey: String?) {
+    public init(apiList: [CurrencyAPIProtocol], uniqueDataKey: String?) {
         self.apiList = apiList
         self.uniqueDataKey = uniqueDataKey
     }

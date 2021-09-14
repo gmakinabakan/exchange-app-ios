@@ -47,6 +47,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                     .padding()
             }
         }
+        
         .navigationTitle(selectedCurrency.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
@@ -71,6 +72,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
         isLoading.toggle()
     }
 }
+
 
 struct CurrencyDetailView_Previews: PreviewProvider {
     class DummyAPI: CurrencyAPIProtocol{
