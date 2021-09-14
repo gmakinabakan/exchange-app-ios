@@ -40,23 +40,23 @@ public struct ApplicationBackgroundColor {
 
 struct ApplicationFont {
     static var Headline1: Font {
-        return Font(UIFont.systemFont(ofSize: 42, weight: .heavy))
+        return Font.system(size: 42, weight: .heavy, design: .default)
     }
     
     static var Headline2: Font {
-        return Font(UIFont.systemFont(ofSize: 24, weight: .bold))
+        return Font.system(size: 24, weight: .bold, design: .default)
     }
     
     static var Button: Font {
-        return Font(UIFont.systemFont(ofSize: 18, weight: .medium))
+        return Font.system(size: 18, weight: .medium, design: .default)
     }
     
     static var Body: Font {
-        return Font(UIFont.systemFont(ofSize: 18, weight: .regular))
+        return Font.system(size: 18, weight: .regular, design: .default)
     }
     
     static var Caption: Font {
-        return Font(UIFont.systemFont(ofSize: 16, weight: .regular))
+        return Font.system(size: 16, weight: .regular, design: .default)
     }
     
 }

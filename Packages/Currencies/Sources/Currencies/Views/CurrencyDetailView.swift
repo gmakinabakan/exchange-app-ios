@@ -23,43 +23,45 @@ struct CurrencyDetailView: View, CurrencyDelegate {
     let randomFormatter = NumberFormatter()
     
     var body: some View {
-        VStack {
-            BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.Primary)
-                .padding()
-            Headline2(text: "\(localFormatter.string(from: 1.00)!)", color: TextColor.Primary)
-                .padding()
-            Headline2(text: "↑↓", color: ApplicationColor.Primary)
-                .padding()
-            if (randomCurrency == nil) {
-                Headline2(text: "N/A", color: TextColor.Primary)
-                    .redacted(reason: .placeholder)
-            } else {
-                Headline2(text: "\(randomFormatter.string(from: NSNumber(value: randomCurrency!.exchangeRate))!)", color: TextColor.Primary)
+        ZStack {
+            ApplicationBackgroundColor.BackgroundColor
+                .ignoresSafeArea()
+            VStack {
+                BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.Primary)
                     .padding()
+                Headline2(text: "\(localFormatter.string(from: 1.00)!)", color: TextColor.Primary)
+                    .padding()
+                Headline2(text: "↑↓", color: ApplicationColor.Primary)
+                    .padding()
+                if (randomCurrency == nil) {
+                    Headline2(text: "N/A", color: TextColor.Primary)
+                        .redacted(reason: .placeholder)
+                } else {
+                    Headline2(text: "\(randomFormatter.string(from: NSNumber(value: randomCurrency!.exchangeRate))!)", color: TextColor.Primary)
+                        .padding()
+                }
+                
+                Spacer()
+                if (isLoading) {
+                    AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: true)
+                        .padding()
+                } else {
+                    AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
+                        .padding()
+                }
             }
-            
-            Spacer()
-            if (isLoading) {
-                AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: true)
-                    .padding()
-            } else {
-                AnimatedButton(text: "REFRESH", action: refreshCurrency, isLoading: false)
-                    .padding()
-            }
-        }
-        .navigationTitle(selectedCurrency.name)
-        .navigationBarTitleDisplayMode(.inline)
-        .background(ApplicationBackgroundColor.BackgroundColor)
-        .ignoresSafeArea()
-        .onAppear(perform: {
-            localFormatter.numberStyle = .currency
-            localFormatter.locale = Locale(identifier: selectedCurrency.localeString)
-            randomFormatter.numberStyle = .currency
-            self.currencyHelper.initialize(currencyDependency: dependencyObject)
-            currencyHelper.delegate = self
-            currencyHelper.currencyList = currencyList
-            refreshCurrency()
+            .navigationTitle(selectedCurrency.name)
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear(perform: {
+                localFormatter.numberStyle = .currency
+                localFormatter.locale = Locale(identifier: selectedCurrency.localeString)
+                randomFormatter.numberStyle = .currency
+                self.currencyHelper.initialize(currencyDependency: dependencyObject)
+                currencyHelper.delegate = self
+                currencyHelper.currencyList = currencyList
+                refreshCurrency()
         })
+        }
     }
     
     private func refreshCurrency() {

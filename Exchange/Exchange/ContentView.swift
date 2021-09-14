@@ -7,9 +7,15 @@
 
 import SwiftUI
 import Welcome
+import DesignSystem
 
 struct ContentView: View {
     @State private var showSplashScreen = true
+    
+    init() {
+        UITableView.appearance().backgroundColor = UIColor(ApplicationBackgroundColor.BackgroundColor)
+    }
+    
     var body: some View {
         if(showSplashScreen) {
             SplashScreen()

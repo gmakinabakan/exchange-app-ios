@@ -22,13 +22,15 @@ public struct WelcomeView: View {
     
     public var body: some View {
         ZStack(alignment: .top) {
+            ApplicationBackgroundColor.BackgroundColor
+                .ignoresSafeArea()
             if (navigateToNextScreen) {
                 dependencyObject.nextView
             } else {
                 GeometryReader { geometry in
                     VStack(alignment: .leading){
                         Headline1(text: dependencyObject.headerMessage, color: TextColor.Primary)
-                            .padding(EdgeInsets(top: 8.0 * inset, leading: inset, bottom: 8.0 * inset, trailing: inset))
+                            .padding(EdgeInsets(top: 11.0 * inset, leading: inset, bottom: 5.0 * inset, trailing: inset))
                         BodyText(text: dependencyObject.captionMessage, color: TextColor.Primary)
                             .padding(EdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
                         Spacer()
@@ -54,15 +56,13 @@ public struct WelcomeView: View {
                 
                 if (showWelcomeMessage) {
                     CustomMessage(text: "We have a lot of new stuff for you")
-                        .padding()
+                        .padding(EdgeInsets(top: 4 * inset, leading: inset, bottom: inset, trailing: inset))
                         .onTapGesture {
                             showWelcomeMessage.toggle()
                         }
                 }
             }
         }
-        .background(ApplicationBackgroundColor.BackgroundColor)
-        .ignoresSafeArea()
     }
     
     func getCurrencyList() {

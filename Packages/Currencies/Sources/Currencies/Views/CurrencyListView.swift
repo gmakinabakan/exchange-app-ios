@@ -20,39 +20,45 @@ public struct CurrencyListView: View, CurrencyDelegate {
     public init() {}
     
     public var body: some View {
-        NavigationView {
-            List() {
-                ForEach(currencyList) { item in
-                    ZStack {
-                        NavigationLink(destination: CurrencyDetailView(selectedCurrency: item, currencyList: currencyList)) {
-                            EmptyView()
-                        }.hidden()
-                        CurrencyRow(currency: item)
+        ZStack {
+            ApplicationBackgroundColor.BackgroundColor
+                .ignoresSafeArea()
+            NavigationView {
+                List() {
+                    ForEach(currencyList) { item in
+                        ZStack {
+                            NavigationLink(destination: CurrencyDetailView(selectedCurrency: item, currencyList: currencyList)) {
+                                EmptyView()
+                            }.hidden()
+                            CurrencyRow(currency: item)
+                        }
+                        .listRowBackground(ApplicationBackgroundColor.BackgroundColor)
                     }
                 }
+                .navigationTitle("Currencies")
+                .background(ApplicationBackgroundColor.BackgroundColor)
+                .ignoresSafeArea()
+                .onAppear(perform: {
+                    var currencyList: [Currency]? = nil
+                    if let keyData = dependencyObject.uniqueDataKey {
+                        if let data = dataTransferObject.DataDictionary[keyData] {
+                            print("Retrieving data from data transfer object")
+                            let decoder = JSONDecoder()
+                            currencyList = try! decoder.decode([Currency].self, from: data)
+                        }
+                        
+                    }
+                    if let currenyListToAssign = currencyList {
+                        self.currencyList = currenyListToAssign
+                    } else {
+                        print("Retrieving data from API")
+                        self.currencyHelper.initialize(currencyDependency: dependencyObject)
+                        currencyHelper.delegate = self
+                        currencyHelper.getCurrencyList()
+                    }
+                })
             }
-            .navigationTitle("Currencies")
-            .background(ApplicationBackgroundColor.BackgroundColor)
-            .ignoresSafeArea()
-            .onAppear(perform: {
-                var currencyList: [Currency]? = nil
-                if let keyData = dependencyObject.uniqueDataKey {
-                    if let data = dataTransferObject.DataDictionary[keyData] {
-                        print("Retrieving data from data transfer object")
-                        let decoder = JSONDecoder()
-                        currencyList = try! decoder.decode([Currency].self, from: data)
-                    }
-                    
-                }
-                if let currenyListToAssign = currencyList {
-                    self.currencyList = currenyListToAssign
-                } else {
-                    print("Retrieving data from API")
-                    self.currencyHelper.initialize(currencyDependency: dependencyObject)
-                    currencyHelper.delegate = self
-                    currencyHelper.getCurrencyList()
-                }
-            })
+            .accentColor(ApplicationColor.Primary)
         }
     }
     
@@ -70,9 +76,11 @@ struct CurrencyListView_Previews: PreviewProvider {
         func getCurrencyList(requestId: String?) {}
     }
     
+    
     static var previews: some View {
         CurrencyListView()
             .environmentObject(DataTransferObservableObject())
             .environmentObject(CurrenciesDependencyObject(apiList: [DummyAPI()], uniqueDataKey: nil))
     }
+    
 }
