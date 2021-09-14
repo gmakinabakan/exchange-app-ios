@@ -72,8 +72,16 @@ struct CurrencyDetailView: View, CurrencyDelegate {
 }
 
 struct CurrencyDetailView_Previews: PreviewProvider {
+    class DummyAPI: CurrencyAPIProtocol{
+        var delegate: CurrencyAPIDataSource?
+        
+        func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {}
+        
+        func getCurrencyList(requestId: String?) {}
+    }
+    
     static var previews: some View {
         CurrencyDetailView(selectedCurrency: Currency(id: "TRY", flag: "🇹🇷", abbreviation: "TRY", name: "Turkish Lira", localeString: "tr_TR"), currencyList: [Currency(id: "TRY", flag: "🇹🇷", abbreviation: "TRY", name: "Turkish Lira", localeString: "tr_TR")])
-            .environmentObject(CurrenciesDependencyObject(apiList: [FixerRestAPI()], uniqueDataKey: nil))
+            .environmentObject(CurrenciesDependencyObject(apiList: [DummyAPI()], uniqueDataKey: nil))
     }
 }

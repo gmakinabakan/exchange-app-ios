@@ -9,9 +9,11 @@ import Foundation
 import Common
 import CurrencyAPIBase
 
-class FixerRestAPI: CurrencyAPIProtocol {
-    var delegate: CurrencyAPIDataSource?
-    var baseDelegate: DataSourceBaseProtocol?
+public class FixerRestAPI: CurrencyAPIProtocol {
+    public var delegate: CurrencyAPIDataSource?
+    public var baseDelegate: DataSourceBaseProtocol?
+    
+    public init() {}
     
     public func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {
         print("Retrieving exchange values from Fixer API")
@@ -74,7 +76,7 @@ class FixerRestAPI: CurrencyAPIProtocol {
 }
 
 extension FixerRestAPI: APIBaseProtocol {
-    func initialCall() {
+    public func initialCall() {
         print("Retrieving currency list from Fixer API (Initial API)")
         let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(FixerAPISettings.SDKKey)")!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -90,9 +92,4 @@ extension FixerRestAPI: APIBaseProtocol {
         
         task.resume()
     }
-}
-
-struct FixerListReponse: Codable, Hashable {
-    var success: Bool
-    var symbols: Dictionary<String, String>
 }

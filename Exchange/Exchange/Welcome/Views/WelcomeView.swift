@@ -74,10 +74,18 @@ extension WelcomeView: DataSourceBaseProtocol {
 }
 
 struct WelcomeScreen_Previews: PreviewProvider {
+    class DummyAPI: APIBaseProtocol{
+        var baseDelegate: DataSourceBaseProtocol?
+        
+        func initialCall() {
+        }
+        
+    }
+    
     static var previews: some View {
         Group {
             WelcomeView()
-                .environmentObject(WelcomeDependencyObject(nextView: AnyView(CurrencyListView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", initialDataAPI: FixerRestAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
+                .environmentObject(WelcomeDependencyObject(nextView: AnyView(CurrencyListView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", initialDataAPI: DummyAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
         }
     }
 }

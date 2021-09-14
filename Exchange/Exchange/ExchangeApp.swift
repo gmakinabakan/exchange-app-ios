@@ -8,6 +8,7 @@
 import SwiftUI
 import Common
 import CurrencyAPIBase
+import FixerAPI
 
 @main
 struct ExchangeApp: App {

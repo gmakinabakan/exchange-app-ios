@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 struct FixerResponse: Codable, Hashable {
     var success: Bool
     var timestamp: Int
