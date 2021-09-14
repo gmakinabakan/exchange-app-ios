@@ -12,7 +12,6 @@
 		F72DBA3826E7DAB8005732FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA3726E7DAB8005732FF /* ContentView.swift */; };
 		F72DBA3A26E7DABE005732FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72DBA3926E7DABE005732FF /* Assets.xcassets */; };
 		F72DBA3D26E7DABE005732FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72DBA3C26E7DABE005732FF /* Preview Assets.xcassets */; };
-		F72DBA4826E7DABE005732FF /* SaveLocalCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */; };
 		F72DBA5326E7DABE005732FF /* ExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA5226E7DABE005732FF /* ExchangeUITests.swift */; };
 		F72DBA6226E7F04F005732FF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA6126E7F04F005732FF /* SplashScreen.swift */; };
 		F72DBA6626E7F43E005732FF /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72DBA6526E7F43E005732FF /* WelcomeView.swift */; };
@@ -24,6 +23,7 @@
 		F7554D6526F0EE320003BD54 /* FixerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = F7554D6426F0EE320003BD54 /* FixerAPI */; };
 		F779ACE326EB8D23001E65E7 /* CurrenciesDependencyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F779ACE226EB8D23001E65E7 /* CurrenciesDependencyObject.swift */; };
 		F779ACE726EBB1A4001E65E7 /* WelcomeDependencyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F779ACE626EBB1A4001E65E7 /* WelcomeDependencyObject.swift */; };
+		F78401EA26F0FC9E006FD317 /* LocalCache in Frameworks */ = {isa = PBXBuildFile; productRef = F78401E926F0FC9E006FD317 /* LocalCache */; };
 		F7B631C026F0E02D00DA909F /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = F7B631BF26F0E02D00DA909F /* Common */; };
 		F7B78E6626E9341B004E2F36 /* CurrencyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B78E6526E9341B004E2F36 /* CurrencyDetailView.swift */; };
 		F7B78E6B26E953DE004E2F36 /* CurrencyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B78E6A26E953DE004E2F36 /* CurrencyHelper.swift */; };
@@ -31,11 +31,8 @@
 		F7D3A64F26E8083D00DC547C /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3A64E26E8083D00DC547C /* AnimatedButton.swift */; };
 		F7F74AA726E927CA0057C099 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AA626E927CA0057C099 /* CurrencyListView.swift */; };
 		F7F74AA926E929690057C099 /* CurrencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F74AA826E929690057C099 /* CurrencyRow.swift */; };
-		F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */; };
-		F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE126EE0309004BA7FE /* CachedData.swift */; };
 		F7FB2FE526EE7E84004BA7FE /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */; };
 		F7FB2FE726EFE6F0004BA7FE /* CurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */; };
-		F7FB2FE926EFFABD004BA7FE /* RetrieveLocalCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +61,6 @@
 		F72DBA3C26E7DABE005732FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F72DBA3E26E7DABE005732FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72DBA4326E7DABE005732FF /* ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocalCacheTest.swift; sourceTree = "<group>"; };
 		F72DBA4926E7DABE005732FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72DBA4E26E7DABE005732FF /* ExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72DBA5226E7DABE005732FF /* ExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeUITests.swift; sourceTree = "<group>"; };
@@ -79,6 +75,7 @@
 		F7554D6326F0EE280003BD54 /* FixerAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FixerAPI; path = ../Packages/FixerAPI; sourceTree = "<group>"; };
 		F779ACE226EB8D23001E65E7 /* CurrenciesDependencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesDependencyObject.swift; sourceTree = "<group>"; };
 		F779ACE626EBB1A4001E65E7 /* WelcomeDependencyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDependencyObject.swift; sourceTree = "<group>"; };
+		F78401E826F0FC86006FD317 /* LocalCache */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LocalCache; path = ../Packages/LocalCache; sourceTree = "<group>"; };
 		F7B78E6526E9341B004E2F36 /* CurrencyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailView.swift; sourceTree = "<group>"; };
 		F7B78E6A26E953DE004E2F36 /* CurrencyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHelper.swift; sourceTree = "<group>"; };
 		F7BD869F26F0E780005E0977 /* CurrencyAPIBase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CurrencyAPIBase; path = ../Packages/CurrencyAPIBase; sourceTree = "<group>"; };
@@ -86,11 +83,8 @@
 		F7D65F9026F0DFF10082B14C /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Common; path = ../Packages/Common; sourceTree = "<group>"; };
 		F7F74AA626E927CA0057C099 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 		F7F74AA826E929690057C099 /* CurrencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRow.swift; sourceTree = "<group>"; };
-		F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLocalCache.swift; sourceTree = "<group>"; };
-		F7FB2FE126EE0309004BA7FE /* CachedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedData.swift; sourceTree = "<group>"; };
 		F7FB2FE426EE7E84004BA7FE /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		F7FB2FE626EFE6F0004BA7FE /* CurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDelegate.swift; sourceTree = "<group>"; };
-		F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveLocalCacheTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B631C026F0E02D00DA909F /* Common in Frameworks */,
+				F78401EA26F0FC9E006FD317 /* LocalCache in Frameworks */,
 				F7554D6526F0EE320003BD54 /* FixerAPI in Frameworks */,
 				F7BD86A126F0E78F005E0977 /* CurrencyAPIBase in Frameworks */,
 			);
@@ -124,6 +119,7 @@
 		F72DBA2926E7DAB8005732FF = {
 			isa = PBXGroup;
 			children = (
+				F78401E826F0FC86006FD317 /* LocalCache */,
 				F7554D6326F0EE280003BD54 /* FixerAPI */,
 				F7BD869F26F0E780005E0977 /* CurrencyAPIBase */,
 				F7D65F9026F0DFF10082B14C /* Common */,
@@ -148,7 +144,6 @@
 		F72DBA3426E7DAB8005732FF /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				F7FB2FDD26EDD933004BA7FE /* LocalCache */,
 				F779ACE426EBAEC8001E65E7 /* Welcome */,
 				F7F74AA526E919150057C099 /* Currencies */,
 				F72DBA6726E7F503005732FF /* DesignSystem */,
@@ -173,8 +168,6 @@
 		F72DBA4626E7DABE005732FF /* ExchangeTests */ = {
 			isa = PBXGroup;
 			children = (
-				F7FB2FE826EFFABD004BA7FE /* RetrieveLocalCacheTest.swift */,
-				F72DBA4726E7DABE005732FF /* SaveLocalCacheTest.swift */,
 				F72DBA4926E7DABE005732FF /* Info.plist */,
 			);
 			path = ExchangeTests;
@@ -273,23 +266,6 @@
 			path = Currencies;
 			sourceTree = "<group>";
 		};
-		F7FB2FDD26EDD933004BA7FE /* LocalCache */ = {
-			isa = PBXGroup;
-			children = (
-				F7FB2FE326EE0315004BA7FE /* Model */,
-				F7FB2FDE26EDE059004BA7FE /* CurrencyLocalCache.swift */,
-			);
-			path = LocalCache;
-			sourceTree = "<group>";
-		};
-		F7FB2FE326EE0315004BA7FE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F7FB2FE126EE0309004BA7FE /* CachedData.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,6 +286,7 @@
 				F7B631BF26F0E02D00DA909F /* Common */,
 				F7BD86A026F0E78F005E0977 /* CurrencyAPIBase */,
 				F7554D6426F0EE320003BD54 /* FixerAPI */,
+				F78401E926F0FC9E006FD317 /* LocalCache */,
 			);
 			productName = Exchange;
 			productReference = F72DBA3226E7DAB8005732FF /* Exchange.app */;
@@ -433,7 +410,6 @@
 				F7B78E6626E9341B004E2F36 /* CurrencyDetailView.swift in Sources */,
 				F728BF7026E8170B003E9054 /* CustomMessage.swift in Sources */,
 				F72DBA6B26E7F699005732FF /* Headline2.swift in Sources */,
-				F7FB2FE226EE0309004BA7FE /* CachedData.swift in Sources */,
 				F779ACE326EB8D23001E65E7 /* CurrenciesDependencyObject.swift in Sources */,
 				F72DBA3826E7DAB8005732FF /* ContentView.swift in Sources */,
 				F7D3A64F26E8083D00DC547C /* AnimatedButton.swift in Sources */,
@@ -441,7 +417,6 @@
 				F72DBA6626E7F43E005732FF /* WelcomeView.swift in Sources */,
 				F7FB2FE726EFE6F0004BA7FE /* CurrencyDelegate.swift in Sources */,
 				F72DBA6F26E7F733005732FF /* Caption.swift in Sources */,
-				F7FB2FDF26EDE059004BA7FE /* CurrencyLocalCache.swift in Sources */,
 				F72DBA3626E7DAB8005732FF /* ExchangeApp.swift in Sources */,
 				F72DBA7126E800D1005732FF /* Constants.swift in Sources */,
 				F7F74AA726E927CA0057C099 /* CurrencyListView.swift in Sources */,
@@ -452,8 +427,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7FB2FE926EFFABD004BA7FE /* RetrieveLocalCacheTest.swift in Sources */,
-				F72DBA4826E7DABE005732FF /* SaveLocalCacheTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +737,10 @@
 		F7554D6426F0EE320003BD54 /* FixerAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FixerAPI;
+		};
+		F78401E926F0FC9E006FD317 /* LocalCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocalCache;
 		};
 		F7B631BF26F0E02D00DA909F /* Common */ = {
 			isa = XCSwiftPackageProductDependency;

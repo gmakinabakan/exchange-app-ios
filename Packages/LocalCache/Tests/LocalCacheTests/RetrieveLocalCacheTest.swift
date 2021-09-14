@@ -6,7 +6,8 @@
 //
 
 import XCTest
-@testable import Exchange
+import CurrencyAPIBase
+@testable import LocalCache
 
 class RetrieveLocalCacheTest: XCTestCase, CurrencyAPIDataSource {
 

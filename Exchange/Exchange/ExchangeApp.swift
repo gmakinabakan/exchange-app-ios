@@ -8,6 +8,7 @@
 import SwiftUI
 import Common
 import CurrencyAPIBase
+import LocalCache
 import FixerAPI
 
 @main

@@ -8,10 +8,12 @@
 import Foundation
 import CurrencyAPIBase
 
-class CurrencyLocalCache: CurrencyAPIProtocol {
-    var delegate: CurrencyAPIDataSource?
+public class CurrencyLocalCache: CurrencyAPIProtocol {
+    public var delegate: CurrencyAPIDataSource?
     
-    func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {
+    public init() {}
+    
+    public func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {
         print("Retrieving exchange from local cache")
         var hasher = Hasher()
         hasher.combine(symbolList)
@@ -26,7 +28,7 @@ class CurrencyLocalCache: CurrencyAPIProtocol {
         }
     }
     
-    func getCurrencyList(requestId: String?) {
+    public func getCurrencyList(requestId: String?) {
         print("Retrieving currency list from local cache")
         if let data = readTemporaryFile(fileName: "CurrencyArray.data"){
             let decoder = JSONDecoder()
@@ -37,13 +39,13 @@ class CurrencyLocalCache: CurrencyAPIProtocol {
         }
     }
     
-    func setCurrencyListCache(currencyArray: [Currency], expiresIn: Double) {
+    public func setCurrencyListCache(currencyArray: [Currency], expiresIn: Double) {
         let encoder = JSONEncoder()
         let currencyArrayData = try! encoder.encode(currencyArray)
         saveTemporaryFile(dataToSave: currencyArrayData, fileName: "CurrencyArray.data", expiresIn: expiresIn)
     }
     
-    func setCurrencyExchangeValueCache(baseCurrency: String, exchangeValues: Dictionary<String, Double>, symbolList: [String], expiresIn: Double) {
+    public func setCurrencyExchangeValueCache(baseCurrency: String, exchangeValues: Dictionary<String, Double>, symbolList: [String], expiresIn: Double) {
         
         var hasher = Hasher()
         hasher.combine(symbolList)
