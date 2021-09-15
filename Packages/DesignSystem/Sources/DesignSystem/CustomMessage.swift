@@ -18,7 +18,7 @@ public struct CustomMessage: View {
         Text(text)
             .foregroundColor(TextColor.onPrimary)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-            .font(ApplicationFont.Caption)
+            .font(ApplicationFont.caption)
             .padding()
             .background(ApplicationColor.primary)
             .cornerRadius(10)

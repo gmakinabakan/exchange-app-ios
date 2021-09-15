@@ -38,6 +38,12 @@ public struct ApplicationBackgroundColor {
     }
 }
 
+public struct ApplicationGradient {
+    public static var secondaryToPrimary: LinearGradient {
+        return LinearGradient(gradient: Gradient(colors: [ApplicationColor.secondary,ApplicationColor.primary]), startPoint: UnitPoint(x: 0, y: 0), endPoint: UnitPoint(x: 1, y: 1))
+    }
+}
+
 struct ApplicationFont {
     static var headline1: Font {
         return Font.system(size: 42, weight: .heavy, design: .default)
@@ -47,18 +53,16 @@ struct ApplicationFont {
         return Font.system(size: 24, weight: .bold, design: .default)
     }
     
-    static var Button: Font {
+    static var button: Font {
         return Font.system(size: 18, weight: .medium, design: .default)
     }
     
-    static var Body: Font {
+    static var body: Font {
         return Font.system(size: 18, weight: .regular, design: .default)
     }
     
-    static var Caption: Font {
+    static var caption: Font {
         return Font.system(size: 16, weight: .regular, design: .default)
     }
     
 }
-
-public var PrimaryGradient = LinearGradient(gradient: Gradient(colors: [ApplicationColor.secondary,ApplicationColor.primary]), startPoint: UnitPoint(x: 0, y: 0), endPoint: UnitPoint(x: 1, y: 1))

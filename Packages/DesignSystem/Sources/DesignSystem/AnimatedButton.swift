@@ -30,10 +30,10 @@ public struct AnimatedButton: View {
             Button(action: action) {
                 Text(loading ? "" : text)
                     .foregroundColor(TextColor.onPrimary)
-                    .font(ApplicationFont.Button)
+                    .font(ApplicationFont.button)
                     .frame(maxWidth: loading ? 15 : .infinity)
                     .padding()
-                    .background(PrimaryGradient)
+                    .background(ApplicationGradient.secondaryToPrimary)
                     .cornerRadius(30)
                     .animation(.default, value: loading)
                     .shadow(radius: 5, x: 0, y: 4)
@@ -45,7 +45,7 @@ public struct AnimatedButton: View {
                 }
             })
             Circle()
-                .fill(PrimaryGradient)
+                .fill(ApplicationGradient.secondaryToPrimary)
                 .frame(width: 55, height: 55)
                 .rotationEffect(Angle.degrees(loading ? 360 : 0))
                 .animation(repeatingAnimation, value: loading)

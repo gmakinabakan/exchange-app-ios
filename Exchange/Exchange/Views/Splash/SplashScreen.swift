@@ -21,7 +21,7 @@ struct SplashScreen: View {
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .leading)
                 .padding()
             }
-            .background(PrimaryGradient)
+            .background(ApplicationGradient.secondaryToPrimary)
             .ignoresSafeArea()
             
         }
