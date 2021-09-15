@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct FixerResponse: Codable, Hashable {
+struct FixerLatestResponse: Codable, Hashable {
     var success: Bool
     var timestamp: Int
     var base: String

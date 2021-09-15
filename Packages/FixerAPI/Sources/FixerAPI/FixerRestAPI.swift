@@ -21,7 +21,7 @@ public class FixerRestAPI: CurrencyAPIProtocol {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()
-            let fixerResponse = try! decoder.decode(FixerResponse.self, from: data)
+            let fixerResponse = try! decoder.decode(FixerLatestResponse.self, from: data)
             DispatchQueue.main.async {
                 self.delegate?.exchangeValuesLoaded(baseCurrency: currencyCode, exchangeValues: fixerResponse.rates, requestId: requestId)
             }
