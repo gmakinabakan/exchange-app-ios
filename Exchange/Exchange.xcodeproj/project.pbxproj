@@ -20,6 +20,7 @@
 		F7B631C026F0E02D00DA909F /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = F7B631BF26F0E02D00DA909F /* Common */; };
 		F7BD86A126F0E78F005E0977 /* CurrencyAPIBase in Frameworks */ = {isa = PBXBuildFile; productRef = F7BD86A026F0E78F005E0977 /* CurrencyAPIBase */; };
 		F7D6163126F10F39009F4942 /* Currencies in Frameworks */ = {isa = PBXBuildFile; productRef = F7D6163026F10F39009F4942 /* Currencies */; };
+		F7DEFF9126F22BB100401E99 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F7DEFF9026F22BB100401E99 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		F785301F26F10EF3001DB20C /* Currencies */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Currencies; path = ../Packages/Currencies; sourceTree = "<group>"; };
 		F7BD869F26F0E780005E0977 /* CurrencyAPIBase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CurrencyAPIBase; path = ../Packages/CurrencyAPIBase; sourceTree = "<group>"; };
 		F7D65F9026F0DFF10082B14C /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Common; path = ../Packages/Common; sourceTree = "<group>"; };
+		F7DEFF9026F22BB100401E99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				F72DBA3926E7DABE005732FF /* Assets.xcassets */,
 				F72DBA3E26E7DABE005732FF /* Info.plist */,
 				F72DBA3B26E7DABE005732FF /* Preview Content */,
+				F7DEFF9026F22BB100401E99 /* README.md */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7DEFF9126F22BB100401E99 /* README.md in Resources */,
 				F72DBA3D26E7DABE005732FF /* Preview Assets.xcassets in Resources */,
 				F72DBA3A26E7DABE005732FF /* Assets.xcassets in Resources */,
 			);
