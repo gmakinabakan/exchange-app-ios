@@ -10,7 +10,7 @@ import Swift
 import CurrencyAPIBase
 import DesignSystem
 
-struct CurrencyDetailView: View, CurrencyDelegate {
+struct CurrencyDetailView: View, CurrencyProtocol {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
     @State private var randomCurrency: (currency:Currency, exchangeRate: Double)? = nil
     @State private var isLoading = false

@@ -8,12 +8,12 @@
 import Foundation
 import CurrencyAPIBase
 
-protocol CurrencyDelegate {
+protocol CurrencyProtocol {
     func randomCurrencySelected(currency: Currency, exchangeValue: Double)
     func currencyListRetrieved(currencyList: [Currency])
 }
 
-extension CurrencyDelegate {
+extension CurrencyProtocol {
     func randomCurrencySelected(currency: Currency, exchangeValue: Double) {}
     func currencyListRetrieved(currencyList: [Currency]) {}
 }

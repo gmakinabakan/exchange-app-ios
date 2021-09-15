@@ -10,7 +10,7 @@ import CurrencyAPIBase
 import Common
 
 class CurrencyHelper {
-    var delegate: CurrencyDelegate?
+    var delegate: CurrencyProtocol?
     var currencyList: [Currency]?
     var dataHelper: CurrencyAPIHelper?
     var uniqueDataKey: String?

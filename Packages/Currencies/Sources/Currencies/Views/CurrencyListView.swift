@@ -10,7 +10,7 @@ import Common
 import CurrencyAPIBase
 import DesignSystem
 
-public struct CurrencyListView: View, CurrencyDelegate {
+public struct CurrencyListView: View, CurrencyProtocol {
     @EnvironmentObject var dependencyObject: CurrenciesDependencyObject
     @EnvironmentObject var dataTransferObject: DataTransferObservableObject
     @State private var currencyList: [Currency] = []
