@@ -22,7 +22,12 @@ class WelcomeHelper {
     }
     
     func loadData() {
-        initialAPI?.initialCall()
+        if let api = initialAPI {
+            api.initialCall()
+        } else {
+            self.delegate?.dataRetrievalCompleted()
+        }
+        
     }
 }
 

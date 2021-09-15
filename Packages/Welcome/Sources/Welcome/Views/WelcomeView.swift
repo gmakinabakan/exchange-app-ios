@@ -36,11 +36,11 @@ public struct WelcomeView: View {
                             .padding(EdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
                         Spacer()
                         if(isLoading) {
-                            AnimatedButton(text: "LET'S GO", action: getCurrencyList, isLoading: true)
+                            AnimatedButton(text: "LET'S GO", action: startNavigation, isLoading: true)
                                 .frame(width: geometry.size.width - (2.0 * inset), alignment: .center)
                                 .padding(inset)
                         } else {
-                            AnimatedButton(text: "LET'S GO", action: getCurrencyList, isLoading: false)
+                            AnimatedButton(text: "LET'S GO", action: startNavigation, isLoading: false)
                                 .frame(width: geometry.size.width - (2.0 * inset), alignment: .center)
                                 .padding(inset)
                         }
@@ -67,7 +67,7 @@ public struct WelcomeView: View {
         }
     }
     
-    func getCurrencyList() {
+    func startNavigation() {
         isLoading.toggle()
         welcomeHelper.loadData()
     }
