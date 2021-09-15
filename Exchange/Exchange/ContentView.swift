@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var showSplashScreen = true
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(ApplicationBackgroundColor.BackgroundColor)
+        UITableView.appearance().backgroundColor = UIColor(ApplicationBackgroundColor.backgroundColor)
     }
     
     var body: some View {

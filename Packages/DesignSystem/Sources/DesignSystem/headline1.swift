@@ -1,5 +1,5 @@
 //
-//  Headline2.swift
+//  Headline1.swift
 //  Exchange
 //
 //  Created by Gun Makinabakan on 7.09.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Headline2: View {
+public struct Headline1: View {
     var text: String
     var color: Color
     
@@ -18,13 +18,13 @@ public struct Headline2: View {
     
     public var body: some View {
         Text(text)
-            .font(ApplicationFont.Headline2)
+            .font(ApplicationFont.headline1)
             .foregroundColor(color)
     }
 }
 
-struct Headline2_Previews: PreviewProvider {
+struct Headline1_Previews: PreviewProvider {
     static var previews: some View {
-        Headline2(text: "Hello. World!", color: TextColor.Primary)
+        Headline1(text: "Hello, World!", color: TextColor.primary)
     }
 }

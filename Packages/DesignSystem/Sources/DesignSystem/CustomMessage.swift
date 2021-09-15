@@ -16,11 +16,11 @@ public struct CustomMessage: View {
     
     public var body: some View {
         Text(text)
-            .foregroundColor(TextColor.OnPrimary)
+            .foregroundColor(TextColor.onPrimary)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .font(ApplicationFont.Caption)
             .padding()
-            .background(ApplicationColor.Primary)
+            .background(ApplicationColor.primary)
             .cornerRadius(10)
     }
 }

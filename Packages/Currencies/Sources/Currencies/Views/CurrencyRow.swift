@@ -14,10 +14,10 @@ struct CurrencyRow: View {
 
     var body: some View {
         HStack {
-            BodyText(text: currency.flag, color: TextColor.Primary)
-            BodyText(text: currency.abbreviation, color: TextColor.Primary)
+            BodyText(text: currency.flag, color: TextColor.primary)
+            BodyText(text: currency.abbreviation, color: TextColor.primary)
             Spacer()
-            Caption(text: currency.name, color: TextColor.Secondary)
+            Caption(text: currency.name, color: TextColor.secondary)
         }
         .padding()
     }

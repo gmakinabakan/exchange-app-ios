@@ -24,20 +24,20 @@ struct CurrencyDetailView: View, CurrencyDelegate {
     
     var body: some View {
         ZStack {
-            ApplicationBackgroundColor.BackgroundColor
+            ApplicationBackgroundColor.backgroundColor
                 .ignoresSafeArea()
             VStack {
-                BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.Primary)
+                BodyText(text: "Here is an exchange rate for \(selectedCurrency.flag) \(selectedCurrency.abbreviation) and randomly selected \(randomCurrency?.currency.flag ?? "") \(randomCurrency?.currency.abbreviation ?? "?")", color: TextColor.primary)
                     .padding()
-                Headline2(text: "\(localFormatter.string(from: 1.00)!)", color: TextColor.Primary)
+                Headline2(text: "\(localFormatter.string(from: 1.00)!)", color: TextColor.primary)
                     .padding()
-                Headline2(text: "↑↓", color: ApplicationColor.Primary)
+                Headline2(text: "↑↓", color: ApplicationColor.primary)
                     .padding()
                 if (randomCurrency == nil) {
-                    Headline2(text: "N/A", color: TextColor.Primary)
+                    Headline2(text: "N/A", color: TextColor.primary)
                         .redacted(reason: .placeholder)
                 } else {
-                    Headline2(text: "\(randomFormatter.string(from: NSNumber(value: randomCurrency!.exchangeRate))!)", color: TextColor.Primary)
+                    Headline2(text: "\(randomFormatter.string(from: NSNumber(value: randomCurrency!.exchangeRate))!)", color: TextColor.primary)
                         .padding()
                 }
                 

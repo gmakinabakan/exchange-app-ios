@@ -22,16 +22,16 @@ public struct WelcomeView: View {
     
     public var body: some View {
         ZStack(alignment: .top) {
-            ApplicationBackgroundColor.BackgroundColor
+            ApplicationBackgroundColor.backgroundColor
                 .ignoresSafeArea()
             if (navigateToNextScreen) {
                 dependencyObject.nextView
             } else {
                 GeometryReader { geometry in
                     VStack(alignment: .leading){
-                        Headline1(text: dependencyObject.headerMessage, color: TextColor.Primary)
+                        Headline1(text: dependencyObject.headerMessage, color: TextColor.primary)
                             .padding(EdgeInsets(top: 11.0 * inset, leading: inset, bottom: 5.0 * inset, trailing: inset))
-                        BodyText(text: dependencyObject.captionMessage, color: TextColor.Primary)
+                        BodyText(text: dependencyObject.captionMessage, color: TextColor.primary)
                             .padding(EdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset))
                         Spacer()
                         if(isLoading) {

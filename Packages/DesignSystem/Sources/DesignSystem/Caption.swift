@@ -25,6 +25,6 @@ public struct Caption: View {
 
 struct Caption_Previews: PreviewProvider {
     static var previews: some View {
-        Caption(text: "Hello, World!", color: TextColor.Primary)
+        Caption(text: "Hello, World!", color: TextColor.primary)
     }
 }

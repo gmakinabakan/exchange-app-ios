@@ -25,6 +25,6 @@ public struct BodyText: View {
 
 struct BodyText_Previews: PreviewProvider {
     static var previews: some View {
-        BodyText(text: "Hello, World!", color: TextColor.Primary)
+        BodyText(text: "Hello, World!", color: TextColor.primary)
     }
 }

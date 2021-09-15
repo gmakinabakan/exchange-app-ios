@@ -21,7 +21,7 @@ public struct CurrencyListView: View, CurrencyDelegate {
     
     public var body: some View {
         ZStack {
-            ApplicationBackgroundColor.BackgroundColor
+            ApplicationBackgroundColor.backgroundColor
                 .ignoresSafeArea()
             NavigationView {
                 List() {
@@ -32,11 +32,11 @@ public struct CurrencyListView: View, CurrencyDelegate {
                             }.hidden()
                             CurrencyRow(currency: item)
                         }
-                        .listRowBackground(ApplicationBackgroundColor.BackgroundColor)
+                        .listRowBackground(ApplicationBackgroundColor.backgroundColor)
                     }
                 }
                 .navigationTitle("Currencies")
-                .background(ApplicationBackgroundColor.BackgroundColor)
+                .background(ApplicationBackgroundColor.backgroundColor)
                 .ignoresSafeArea()
                 .onAppear(perform: {
                     var currencyList: [Currency]? = nil
@@ -58,7 +58,7 @@ public struct CurrencyListView: View, CurrencyDelegate {
                     }
                 })
             }
-            .accentColor(ApplicationColor.Primary)
+            .accentColor(ApplicationColor.primary)
         }
     }
     
