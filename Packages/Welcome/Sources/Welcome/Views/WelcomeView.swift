@@ -17,6 +17,7 @@ public struct WelcomeView: View {
     @State private var isLoading = false
     
     let inset:CGFloat = 10.0
+    let welcomeHelper = WelcomeHelper()
     
     public init() {}
     
@@ -46,7 +47,8 @@ public struct WelcomeView: View {
                         
                     }
                     .onAppear(perform: {
-                        dependencyObject.initialDataAPI?.baseDelegate = self
+                        welcomeHelper.delegate = self
+                        welcomeHelper.initialize(initialAPI: dependencyObject.initialDataAPI, uniqueDataKey: dependencyObject.uniqueDataKey, dataTransferObject: dataTransferObject)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             showWelcomeMessage.toggle()
                         }
@@ -55,7 +57,7 @@ public struct WelcomeView: View {
                 }
                 
                 if (showWelcomeMessage) {
-                    CustomMessage(text: "We have a lot of new stuff for you")
+                    CustomMessage(text: dependencyObject.popupMessage)
                         .padding(EdgeInsets(top: 4 * inset, leading: inset, bottom: inset, trailing: inset))
                         .onTapGesture {
                             showWelcomeMessage.toggle()
@@ -67,14 +69,12 @@ public struct WelcomeView: View {
     
     func getCurrencyList() {
         isLoading.toggle()
-        dependencyObject.initialDataAPI?.initialCall()
+        welcomeHelper.loadData()
     }
 }
 
-extension WelcomeView: DataSourceBaseProtocol {
-    public func initialDataRetrieved(data: Data) {
-        if let dataKey = dependencyObject.uniqueDataKey {  dataTransferObject.DataDictionary[dataKey] = data
-        }
+extension WelcomeView: WelcomeDataProtocol {
+    func dataRetrievalCompleted() {
         navigateToNextScreen.toggle()
     }
 }
@@ -91,7 +91,7 @@ struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             WelcomeView()
-                .environmentObject(WelcomeDependencyObject(nextView: AnyView(WelcomeView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", initialDataAPI: DummyAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
+                .environmentObject(WelcomeDependencyObject(nextView: AnyView(WelcomeView()), headerMessage: "Welcome to the currency exchange rate application", captionMessage: "The app, where you can find an exchange rate of the currency that has been added by the developer👌", popupMessage: "We have a lot of new stuff for you", initialDataAPI: DummyAPI(), uniqueDataKey: "dc7eb963-c89e-4137-9005-62f6b1e1c7a7"))
         }
     }
 }
