@@ -10,6 +10,8 @@ import Common
 import CurrencyAPIBase
 
 public class FixerRestAPI: CurrencyAPIProtocol {
+    public var isCache: Bool = false
+    
     public weak var delegate: CurrencyAPIDataSource?
     public weak var baseDelegate: DataSourceBaseProtocol?
     

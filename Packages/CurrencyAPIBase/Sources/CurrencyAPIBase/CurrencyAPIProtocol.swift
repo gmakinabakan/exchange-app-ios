@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol CurrencyAPIProtocol {
+    var isCache: Bool {get set}
     var delegate: CurrencyAPIDataSource? {get set}
     func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?)
     func getCurrencyList(requestId: String?)

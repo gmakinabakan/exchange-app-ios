@@ -9,6 +9,8 @@ import Foundation
 import CurrencyAPIBase
 
 public class CurrencyLocalCache: CurrencyAPIProtocol {
+    public var isCache: Bool = true
+    
     public weak var delegate: CurrencyAPIDataSource?
     
     public init() {}
