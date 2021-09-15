@@ -31,7 +31,7 @@ class CurrencyHelper {
     
     func getCurrencyList() {
         if let keyData = uniqueDataKey {
-            if let data = dataTransferObject?.DataDictionary[keyData] {
+            if let data = dataTransferObject?.dataDictionary[keyData] {
                 print("Retrieving data from data transfer object")
                 let decoder = JSONDecoder()
                 currencyList = try! decoder.decode([Currency].self, from: data)

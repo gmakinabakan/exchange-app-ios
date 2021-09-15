@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public final class DataTransferObservableObject: ObservableObject {
-    public var DataDictionary: Dictionary<String, Data> = [String: Data]()
+    public var dataDictionary: Dictionary<String, Data> = [String: Data]()
     
     public init() {}
 }

@@ -36,7 +36,7 @@ extension WelcomeHelper: DataSourceBaseProtocol {
         if let dataKey = uniqueDataKey
         {
             print(data)
-            self.dataTransferObject?.DataDictionary[dataKey] = data
+            self.dataTransferObject?.dataDictionary[dataKey] = data
             self.delegate?.dataRetrievalCompleted()
         }
     }
