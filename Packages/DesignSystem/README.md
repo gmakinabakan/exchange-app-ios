@@ -42,3 +42,8 @@ These are the implementations of the UI elements that are meant to be used in ot
  - CustomMessage
  - Headline1
  - Headline2
+
+## Further Discussion
+
+### Insets and Paddings
+I believe design system should be also controlling the padding and the insets for the application. Therefore there needs to be default padding values on the controls and different predefined inset values defined in the design system. For the sake of simpilicity in the project I choose to omit those and implement those in the screens. However larger projects might need a different approach. 

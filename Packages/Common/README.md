@@ -46,3 +46,7 @@ Any class that will use this key value storage needs to implement this protocol.
 This is the implementation of key-value storage. This need to be supplied as an environment object to the project in or der to be used as the key-value storage instance.
 
 ## Further Discussion
+
+### Data Transfer
+
+Currently data trasfer is implemented to use an in memory dictionary. However in larger projects, this might be a problem because a large data can be inserted to the memory which is really valuable in a mobile device. One approach can be creating a protocol with data get and data set and create different implementations of this protocol. One implementation can be still a in memory dictionary, other can be a temporary file approach, Redis approach or even a Document DB approach. The user of this package can decide which implementation to use regarding his needs. I didn't go to that route for the sake of simlicity for this project.

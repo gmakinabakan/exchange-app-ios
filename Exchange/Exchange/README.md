@@ -52,3 +52,6 @@ This view is the implementation of splash screen.
 In my solution dependencies are injected through the environment object. I am not really sure this is the best solution esspecially for larger projects. However it served my purpose for this application. One limitation of this approach is currently you cannot use the same package twice with different settings in the same application because the environment object mapping depends on the type. The OS mapping algorithm will always find the same object that matches the type. 
 
 If this injection mechanism stays and we want to support using same packages with different settings, then the dependency object structure should change. Different settings will need to be stored in a dictionary with unique keys. Then each package initial view will be initilized with this unique keys and the package retrieves the right settings from the dependency object's dictionary with the given key.
+
+### Mock APIs For Previews
+Because of the dependency injection all over the application, previews don not properly work. In the preview code I injected mock and empty APIs. For the future these APIs will need to be implemented so that the canvas displays example data.
