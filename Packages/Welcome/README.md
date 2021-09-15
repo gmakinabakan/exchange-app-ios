@@ -34,4 +34,4 @@ This is an internal protocol that makes sure the view gets the data loaded event
 This class implements *DataSourceBaseProtocol* and calls the initial API. When the data is loaded, it uses data transfer object and sets the data with the given key. 
 
 ## WelcomeView
-This is the actual implementation of the Welcome view. This displays the messages, popup and has the navigational logic. This viewe utilizes WelcomerHelper to instantiate data loading for the next screen.
+This is the actual implementation of the Welcome view. This displays the messages, popup and has the navigational logic. This view utilizes WelcomerHelper to instantiate data loading for the next screen.
