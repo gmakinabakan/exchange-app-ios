@@ -7,12 +7,7 @@
 
 import Foundation
 
-public struct CachedData: Codable, Hashable {
+struct CachedData: Codable, Hashable {
     var expirationTimestamp: Double
     var data: Data
-    
-    public init(expirationTimestamp: Double, data: Data) {
-        self.expirationTimestamp = expirationTimestamp
-        self.data = data
-    }
 }
