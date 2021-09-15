@@ -12,12 +12,12 @@ import Common
 class CurrencyHelper {
     var delegate: CurrencyDelegate?
     var currencyList: [Currency]?
-    var dataHelper: DataHelper?
+    var dataHelper: CurrencyAPIHelper?
     var uniqueDataKey: String?
     var dataTransferObject: DataTransferObservableObject?
     
     func initialize (apiList: [CurrencyAPIProtocol], uniqueDataKey: String?, dataTransferObject: DataTransferObservableObject?) {
-        self.dataHelper = DataHelper(apiList: apiList)
+        self.dataHelper = CurrencyAPIHelper(apiList: apiList)
         self.dataHelper?.delegate = self
         self.uniqueDataKey = uniqueDataKey
         self.dataTransferObject = dataTransferObject

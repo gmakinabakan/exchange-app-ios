@@ -13,7 +13,7 @@ struct RequestInformation {
     var symbolList: [String]?
 }
 
-class DataHelper {
+class CurrencyAPIHelper {
     var apiList: [CurrencyAPIProtocol]
     var delegate: CurrencyAPIDataSource?
     var requestDictionary = Dictionary<String, RequestInformation> ()
@@ -26,7 +26,7 @@ class DataHelper {
     }
 }
 
-extension DataHelper: CurrencyAPIProtocol {
+extension CurrencyAPIHelper: CurrencyAPIProtocol {
     func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {
         if let oldRequestId = requestId {
             if let oldRequest = requestDictionary[oldRequestId] {
@@ -56,7 +56,7 @@ extension DataHelper: CurrencyAPIProtocol {
     }
 }
 
-extension DataHelper: CurrencyAPIDataSource {
+extension CurrencyAPIHelper: CurrencyAPIDataSource {
     func exchangeValuesLoaded(baseCurrency: String, exchangeValues: Dictionary<String, Double>, requestId: String?) {
         if let oldRequestId = requestId, let oldRequest = requestDictionary[oldRequestId] {
             if (exchangeValues.count > 0 || oldRequest.apiIndex == apiList.count - 1) {
