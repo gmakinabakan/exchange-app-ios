@@ -43,7 +43,7 @@ If the implementer has a caching mechanism, this function needs to be implemente
 
 ### CurrencyAPIDataSource
 
-Code that uses Currency API to retrieve currency data asynchronously needs to implement this protocol. If requestId is sent with the reequest, it will be received back from the data source.
+Code that uses Currency API to retrieve currency data asynchronously needs to implement this protocol. If requestId is sent with the request, it will be received back from the data source.
 
     public protocol CurrencyAPIDataSource {
         func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?)
