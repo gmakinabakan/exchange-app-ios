@@ -39,23 +39,9 @@ public struct CurrencyListView: View, CurrencyDelegate {
                 .background(ApplicationBackgroundColor.backgroundColor)
                 .ignoresSafeArea()
                 .onAppear(perform: {
-                    var currencyList: [Currency]? = nil
-                    if let keyData = dependencyObject.uniqueDataKey {
-                        if let data = dataTransferObject.DataDictionary[keyData] {
-                            print("Retrieving data from data transfer object")
-                            let decoder = JSONDecoder()
-                            currencyList = try! decoder.decode([Currency].self, from: data)
-                        }
-                        
-                    }
-                    if let currenyListToAssign = currencyList {
-                        self.currencyList = currenyListToAssign
-                    } else {
-                        print("Retrieving data from API")
-                        self.currencyHelper.initialize(currencyDependency: dependencyObject)
-                        currencyHelper.delegate = self
-                        currencyHelper.getCurrencyList()
-                    }
+                    self.currencyHelper.initialize(apiList: dependencyObject.apiList, uniqueDataKey: dependencyObject.uniqueDataKey, dataTransferObject: dataTransferObject)
+                    currencyHelper.delegate = self
+                    currencyHelper.getCurrencyList()
                 })
             }
             .accentColor(ApplicationColor.primary)

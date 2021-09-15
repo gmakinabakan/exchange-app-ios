@@ -56,7 +56,7 @@ struct CurrencyDetailView: View, CurrencyDelegate {
                 localFormatter.numberStyle = .currency
                 localFormatter.locale = Locale(identifier: selectedCurrency.localeString)
                 randomFormatter.numberStyle = .currency
-                self.currencyHelper.initialize(currencyDependency: dependencyObject)
+                self.currencyHelper.initialize(apiList: dependencyObject.apiList, uniqueDataKey: dependencyObject.uniqueDataKey, dataTransferObject: nil)
                 currencyHelper.delegate = self
                 currencyHelper.currencyList = currencyList
                 refreshCurrency()

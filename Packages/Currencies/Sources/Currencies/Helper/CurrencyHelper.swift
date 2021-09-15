@@ -7,17 +7,20 @@
 
 import Foundation
 import CurrencyAPIBase
+import Common
 
 class CurrencyHelper {
     var delegate: CurrencyDelegate?
-    var currencyDependencyObject: CurrenciesDependencyObject?
     var currencyList: [Currency]?
     var dataHelper: DataHelper?
+    var uniqueDataKey: String?
+    var dataTransferObject: DataTransferObservableObject?
     
-    func initialize (currencyDependency: CurrenciesDependencyObject) {
-        self.dataHelper = DataHelper(apiList: currencyDependency.apiList)
+    func initialize (apiList: [CurrencyAPIProtocol], uniqueDataKey: String?, dataTransferObject: DataTransferObservableObject?) {
+        self.dataHelper = DataHelper(apiList: apiList)
         self.dataHelper?.delegate = self
-        self.currencyDependencyObject = currencyDependency
+        self.uniqueDataKey = uniqueDataKey
+        self.dataTransferObject = dataTransferObject
     }
     
     func getRandomCurrency(currentCurrency: Currency) {
@@ -27,7 +30,18 @@ class CurrencyHelper {
     }
     
     func getCurrencyList() {
-        self.currencyDependencyObject?.apiList[0].getCurrencyList(requestId: nil)
+        if let keyData = uniqueDataKey {
+            if let data = dataTransferObject?.DataDictionary[keyData] {
+                print("Retrieving data from data transfer object")
+                let decoder = JSONDecoder()
+                currencyList = try! decoder.decode([Currency].self, from: data)
+                self.delegate?.currencyListRetrieved(currencyList: currencyList!)
+                return
+            }
+            
+        }
+        print("Retrieving data from API")
+        self.dataHelper?.getCurrencyList(requestId: nil)
     }
 }
 
