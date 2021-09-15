@@ -55,7 +55,7 @@ public struct CurrencyListView: View, CurrencyProtocol {
 
 struct CurrencyListView_Previews: PreviewProvider {
     class DummyAPI: CurrencyAPIProtocol{
-        var delegate: CurrencyAPIDataSource?
+        weak var delegate: CurrencyAPIDataSource?
         
         func getExchangeValues(currencyCode: String, symbolList: [String], requestId: String?) {}
         

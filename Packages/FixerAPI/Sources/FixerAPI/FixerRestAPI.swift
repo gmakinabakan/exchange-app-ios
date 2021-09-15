@@ -10,8 +10,8 @@ import Common
 import CurrencyAPIBase
 
 public class FixerRestAPI: CurrencyAPIProtocol {
-    public var delegate: CurrencyAPIDataSource?
-    public var baseDelegate: DataSourceBaseProtocol?
+    public weak var delegate: CurrencyAPIDataSource?
+    public weak var baseDelegate: DataSourceBaseProtocol?
     
     public init() {}
     

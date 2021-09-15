@@ -81,7 +81,7 @@ extension WelcomeView: WelcomeDataProtocol {
 
 struct WelcomeScreen_Previews: PreviewProvider {
     class DummyAPI: APIBaseProtocol{
-        var baseDelegate: DataSourceBaseProtocol?
+        weak var baseDelegate: DataSourceBaseProtocol?
         
         func initialCall() {
         }

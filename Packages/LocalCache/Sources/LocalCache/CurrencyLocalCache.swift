@@ -9,7 +9,7 @@ import Foundation
 import CurrencyAPIBase
 
 public class CurrencyLocalCache: CurrencyAPIProtocol {
-    public var delegate: CurrencyAPIDataSource?
+    public weak var delegate: CurrencyAPIDataSource?
     
     public init() {}
     

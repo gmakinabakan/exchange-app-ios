@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol CurrencyAPIDataSource {
+public protocol CurrencyAPIDataSource: AnyObject {
     func exchangeValuesLoaded(baseCurrency:String, exchangeValues: Dictionary<String,Double>, requestId: String?)
     func currencyListRetrieved(currencyList: [Currency], requestId: String?)
 }

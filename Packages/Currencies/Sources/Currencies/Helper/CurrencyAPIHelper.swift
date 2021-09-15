@@ -15,7 +15,7 @@ struct RequestInformation {
 
 class CurrencyAPIHelper {
     var apiList: [CurrencyAPIProtocol]
-    var delegate: CurrencyAPIDataSource?
+    weak var delegate: CurrencyAPIDataSource?
     var requestDictionary = Dictionary<String, RequestInformation> ()
     
     init(apiList: [CurrencyAPIProtocol]) {
